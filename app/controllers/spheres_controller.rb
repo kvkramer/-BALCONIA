@@ -80,4 +80,5 @@ class SpheresController < ApplicationController
   def set_sphere
     @sphere = Sphere.find(params[:id])
   end
+
 end
