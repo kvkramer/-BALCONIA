@@ -1,53 +1,53 @@
 class BookingsController < ApplicationController
 
   def index
-    #Find the user we're creating the meeting for
+    #Find the user we're creating the booking for
     #@user = User.find(params[:user_id])
-    # Asssociate the dog and the user
-    #@dog.user = @user
-    # Display all the meetings
+    # Asssociate the sphere and the user
+    #@sphere.user = @user
+    # Display all the bookings
 
-    @meetings = Meeting.all
+    @bookings = booking.all
 
-    # @user_meetings = Meeting.where(user = current_user)
+    # @user_bookings = booking.where(user = current_user)
   end
 
   def new
-    @meeting = Meeting.new
-    set_dog
+    @booking = booking.new
+    set_sphere
   end
 
   def create
-    set_dog
+    set_sphere
     @user = current_user
-    @price = @dog.price
-    @meeting = Meeting.new(meeting_params)
-    @meeting.user_id = current_user.id
-    @meeting.dog = @dog
-    @meeting.price = @price
-    if @meeting.save
-      redirect_to meetings_path, notice: 'Added ingredient.'
+    @price = @sphere.price
+    @booking = booking.new(booking_params)
+    @booking.user_id = current_user.id
+    @booking.sphere = @sphere
+    @booking.price = @price
+    if @booking.save
+      redirect_to bookings_path, notice: 'Added ingredient.'
     else
       render :new
     end
   end
 
   def destroy
-    @meetings = Meeting.find(params[:id])
-    @meetings.destroy
+    @bookings = booking.find(params[:id])
+    @bookings.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to meetings_path, notice: 'This meeting was cancelled.'
+    redirect_to bookings_path, notice: 'This booking was cancelled.'
   end
 
   private
 
-  def set_dog
-    @dog = Dog.find(params[:dog_id])
+  def set_sphere
+    @sphere = sphere.find(params[:sphere_id])
   end
 
-  def meeting_params
-    params.require(:meeting).permit(:dates, :price, :user_id, :dog_id, :start_time, :end_time)
+  def booking_params
+    params.require(:booking).permit(:date, :price, :user_id, :sphere_id, :starttime, :endtime)
   end
 
 end
