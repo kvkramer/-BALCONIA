@@ -3,14 +3,16 @@ class SpheresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @spheres = Sphere.all
+    # @spheres = Sphere.all
 
     # map
     @spheres = Sphere.geocoded
     @markers = @spheres.map do |sphere|
       {
         lat: sphere.latitude,
-        lng: sphere.longitude
+        lng: sphere.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
+        # image_url: helpers.asset_url('spheres/picture1.jpg')
       }
     end
 
@@ -31,7 +33,6 @@ class SpheresController < ApplicationController
     else
       @spheres = Sphere.all
     end
-
   end
 
   def show
@@ -75,8 +76,7 @@ class SpheresController < ApplicationController
 
   # strong params
   def sphere_params
-    t.boolean "barbecue"
-    params.require(:sphere).permit(:address, :description, :price, :photos, :barbecue)
+    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue)
   end
 
   def set_sphere
