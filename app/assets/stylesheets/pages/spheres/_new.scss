@@ -39,4 +39,27 @@
 
 #header-yellow {
 color: #fec92d;
+font-weight: bold;
 }
+
+
+#edit-form {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 50px
+}
+
+
+.avatar-large-barknb {
+  object-fit: cover;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  margin: -100px 1650px 150px 80px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.form-control:not(:focus) {
+  font-style:italic;
+  }
