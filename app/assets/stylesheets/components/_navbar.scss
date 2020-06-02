@@ -1,8 +1,22 @@
 .navbar {
-  display: flex;
   background: white;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+  height: 8vh;
+  width: 100%;
+}
+.navbar-items {
+  margin: auto;
+  display: flex;
+  width: 95%;
+}
+.nav-item {
+  justify-content: space-between;
+  font-size: 24px;
+  margin: auto;
 }
 
-.navbar-link {
-  justify-content: space-around;
+h3 {
+  margin: 3%;
 }
