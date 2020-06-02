@@ -3,7 +3,7 @@ class SpheresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @spheres = Sphere.all
+    # @spheres = Sphere.all
 
     # map
     @spheres = Sphere.geocoded
@@ -11,8 +11,8 @@ class SpheresController < ApplicationController
       {
         lat: sphere.latitude,
         lng: sphere.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
-        image_url: helpers.asset_url('spheres/picture1.jpg')
+        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
+        image_url: helpers.asset_url('spheres/1.jpg')
       }
     end
 
