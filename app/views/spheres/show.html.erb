@@ -5,7 +5,7 @@
     <% if @sphere.photo.attached? %>
       <%= cl_image_tag @sphere.photo.key, crop: :fill %>
     <% else %>
-      <%= image_tag "spheres/#{rand(1..12)}.jpg" %>
+      <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
     <% end %>
 
     <div class="card-sphere-show-infos">
