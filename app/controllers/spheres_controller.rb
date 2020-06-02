@@ -10,7 +10,9 @@ class SpheresController < ApplicationController
     @markers = @spheres.map do |sphere|
       {
         lat: sphere.latitude,
-        lng: sphere.longitude
+        lng: sphere.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
+        image_url: helpers.asset_url('spheres/picture1.jpg')
       }
     end
 
