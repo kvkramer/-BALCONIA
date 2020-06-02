@@ -1,5 +1,5 @@
 <div class="page-container">
-  <h1> Welcome to <%= @sphere.name %> </h1>
+  <h1> Welcome to <%= @sphere.title %> </h1>
 
 <div class="card-sphere-show">
     <% if @sphere.photo.attached? %>
@@ -21,7 +21,7 @@
 
   <div class="flex-container">
   <button class="btn btn-outline-secondary flex-item"><%= link_to "Back to all spheres",  spheres_path %></button>
-  <button class="btn btn-outline-secondary flex-item"><%= link_to "Book this sphere",  new_sphere_meeting_path(@sphere) %></button>
+  <button class="btn btn-outline-secondary flex-item"><%= link_to "Book this sphere",  new_sphere_booking_path(@sphere) %></button>
   <button class="btn btn-outline-secondary flex-item"><%= link_to "Edit this sphere",  edit_sphere_path %></button>
   <button class="btn btn-outline-secondary flex-item"><%= link_to "Delete this sphere", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
   </div>

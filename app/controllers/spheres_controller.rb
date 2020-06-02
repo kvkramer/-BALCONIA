@@ -31,7 +31,6 @@ class SpheresController < ApplicationController
     else
       @spheres = Sphere.all
     end
-
   end
 
   def show
@@ -75,8 +74,7 @@ class SpheresController < ApplicationController
 
   # strong params
   def sphere_params
-    t.boolean "barbecue"
-    params.require(:sphere).permit(:address, :description, :price, :photos, :barbecue)
+    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue)
   end
 
   def set_sphere
