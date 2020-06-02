@@ -7,13 +7,13 @@ class BookingsController < ApplicationController
     #@sphere.user = @user
     # Display all the bookings
 
-    @bookings = booking.all
+    @bookings = Booking.all
 
     # @user_bookings = booking.where(user = current_user)
   end
 
   def new
-    @booking = booking.new
+    @booking = Booking.new
     set_sphere
   end
 
@@ -21,19 +21,19 @@ class BookingsController < ApplicationController
     set_sphere
     @user = current_user
     @price = @sphere.price
-    @booking = booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.sphere = @sphere
     @booking.price = @price
     if @booking.save
-      redirect_to bookings_path, notice: 'Added ingredient.'
+      redirect_to bookings_path, notice: 'Added booking.'
     else
       render :new
     end
   end
 
   def destroy
-    @bookings = booking.find(params[:id])
+    @bookings = Booking.find(params[:id])
     @bookings.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
@@ -43,7 +43,7 @@ class BookingsController < ApplicationController
   private
 
   def set_sphere
-    @sphere = sphere.find(params[:sphere_id])
+    @sphere = Sphere.find(params[:sphere_id])
   end
 
   def booking_params
