@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_105820) do
+ActiveRecord::Schema.define(version: 2020_06_03_095834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 2020_06_02_105820) do
     t.float "latitude"
     t.float "longitude"
     t.string "title"
+    t.boolean "balcony"
+    t.boolean "garden"
+    t.boolean "terrace"
+    t.boolean "plants"
+    t.boolean "quiet"
+    t.boolean "sunny"
+    t.boolean "spacious_desk"
+    t.boolean "highspeed_wifi"
+    t.boolean "pet_friendly"
+    t.boolean "cozy"
     t.index ["user_id"], name: "index_spheres_on_user_id"
   end
 
