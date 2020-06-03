@@ -15,11 +15,8 @@
           <div class="card-sphere-show-infos">
             <div>
 
-              <p> address: <%= @sphere.address.downcase  %></p>
-              <p> description: <%= @sphere.description %></p>
-              <p> contact host: <%= @sphere.user.email %></p>
-              <p> read reviews: </p>
 
+              <p> address: <%= @sphere.address.downcase %></p>
               <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
               <p> <%= @sphere.description %></p>
               
@@ -72,17 +69,33 @@
         </div>
 <br>
         <div class="flex-container">
-          <button class="btn btn-outline-secondary flex-item"><%= link_to "redo search",  spheres_path %></button>
-          <button class="btn btn-outline-secondary flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
-          <% if policy(@sphere).edit? %>
-            <button class="btn btn-outline-secondary flex-item"><%= link_to "edit",  edit_sphere_path %></button>
+
+           <% if policy(@sphere).edit? %>
+            <button class="btn-yellow flex-item"><%= link_to "edit",  edit_sphere_path %></button>
           <% end %>
           <% if policy(@sphere).destroy? %>
-            <button class="btn btn-outline-secondary flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
-          <% end %>
-        </div>
-      </div>
+            <button class="btn-yellow flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
+          <button class="btn-yellow flex-item"><%= link_to "continue search",  spheres_path %></button>
+          <button class="btn-yellow flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>    
+      <% end %>
+          <br>
+         
+         <div class="card-product">
+            <div class="card-product-infos">
+              <h2>Reviews</h2>
+              <p>Our review text!</p>
+            </div>
+          </div>
+
+            <div class="col-12 m-auto">
+              <div class="card-sphere-show-infos">
+                
+              </div>
+            </div>
+         
+       
     </div>
   </div>
 </div>
-<br>
+
+
