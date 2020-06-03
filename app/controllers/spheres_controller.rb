@@ -46,7 +46,7 @@ class SpheresController < ApplicationController
     @sphere = Sphere.new(sphere_params)
     @sphere.user = @user
     if @sphere.save
-      redirect_to sphere_path(@sphere)
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :new
     end
@@ -57,7 +57,7 @@ class SpheresController < ApplicationController
 
   def update
     if @sphere.update(sphere_params)
-      redirect_to sphere_path(@sphere)
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :edit
     end
@@ -68,7 +68,7 @@ class SpheresController < ApplicationController
     @spheres.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to spheres_path
+    redirect_to spheres_path, notice: 'This deleted successfully.'
   end
 
   private

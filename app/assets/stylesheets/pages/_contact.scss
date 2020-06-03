@@ -1,0 +1,28 @@
+.yellow-container {
+  background-color: $yellow !important;
+  height: 100vh;
+}
+
+.footer-links {
+  text-align: center;
+}
+.footer-links h2{
+  color: white;
+}
+.footer-links a{
+  color: black;
+}
+
+
+.logout {
+  text-align: center;
+  margin: 30px;
+}
+
+.logout h2{
+  color: white;
+}
+
+.logout a, p{
+  color: black;
+}
