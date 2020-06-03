@@ -88,7 +88,7 @@ class SpheresController < ApplicationController
 
   # strong params
   def sphere_params
-    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue)
+    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue, :balcony, :garden, :terrace, :sunny, :highspeed_wifi, :plants, :quiet, :spacious_desk, :cozy, :pet_friendly)
   end
 
   def set_sphere

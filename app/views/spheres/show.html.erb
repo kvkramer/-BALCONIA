@@ -14,16 +14,63 @@
 
           <div class="card-sphere-show-infos">
             <div>
+
               <p> address: <%= @sphere.address.downcase  %></p>
               <p> description: <%= @sphere.description %></p>
               <p> contact host: <%= @sphere.user.email %></p>
               <p> read reviews: </p>
+
               <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
+              <p> <%= @sphere.description %></p>
+              
+
+              <% if @sphere.balcony %>
+              <p> balcony </p>
+              <% end %>
+
+              <% if @sphere.garden %>
+              <p> garden </p>
+              <% end %>
+
+              <% if @sphere.terrace %>
+              <p> terrace </p>
+              <% end %>
+
+               <% if @sphere.sunny %>
+              <p> sunny </p>
+              <% end %>
+
+               <% if @sphere.highspeed_wifi %>
+              <p> highspeed_wifi </p>
+              <% end %>
+
+               <% if @sphere.plants %>
+              <p> plants </p>
+              <% end %>
+               <% if @sphere.quiet %>
+              <p> quiet </p>
+              <% end %>
+               <% if @sphere.spacious_desk %>
+              <p> spacious_desk </p>
+              <% end %>
+               <% if @sphere.barbecue %>
+              <p> barbecue </p>
+              <% end %>
+               <% if @sphere.cozy %>
+              <p> cozy </p>
+              <% end %>
+               <% if @sphere.pet_friendly %>
+              <p> pet_friendly </p>
+              <% end %>
+              <br>
+              <p> reviews </p>
+
             </div>
+
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" />
           </div>
         </div>
-
+<br>
         <div class="flex-container">
           <button class="btn btn-outline-secondary flex-item"><%= link_to "redo search",  spheres_path %></button>
           <button class="btn btn-outline-secondary flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
@@ -38,3 +85,4 @@
     </div>
   </div>
 </div>
+<br>
