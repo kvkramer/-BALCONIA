@@ -13,7 +13,7 @@
             <div>
               <h1 id="showpage_title">Welcome to <%= @sphere.title %></h1>
 
-              <p> address: <%= @sphere.address %></p>
+              <p> address: <%= @sphere.address.downcase %></p>
               <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
               <p> <%= @sphere.description %></p>
               
@@ -65,18 +65,30 @@
           </div>
         </div>
 <br>
-        <div id="text-color" class="flex-container">
+        <div class="flex-container">
           <% if @sphere.user==current_user%>
-              <button class="btn-yellow flex-item"><%= link_to "Edit",  edit_sphere_path %></button>
-              <button class="btn-yellow flex-item"><%= link_to "Delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
+              <button class="btn-yellow flex-item"><%= link_to "edit",  edit_sphere_path %></button>
+              <button class="btn-yellow flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
             <% else %>
-              <button class="btn-yellow flex-item"><%= link_to "Continue search",  spheres_path %></button>
-              <button class="btn-yellow flex-item"><%= link_to "Book",  new_sphere_booking_path(@sphere) %></button>
+              <button class="btn-yellow flex-item"><%= link_to "continue search",  spheres_path %></button>
+              <button class="btn-yellow flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
            <% end %>
+          <br>
+         
+         <div class="card-product">
+            <div class="card-product-infos">
+              <h2>Reviews</h2>
+              <p>Our review text!</p>
+            </div>
+          </div>
 
-        </div>
-      </div>
-    </div>
+            <div class="col-12 m-auto">
+              <div class="card-sphere-show-infos">
+                
+              </div>
+            </div>
+          
   </div>
 </div>
-<br>
+
+
