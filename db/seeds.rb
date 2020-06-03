@@ -16,8 +16,10 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 
 Sphere.create!(title: "Cozy Living Room", address: "Berlin", price: 10, user_id: user.id)
-Sphere.create!(title: "City Garden in London", address: "Kreuzberg, Germany", price: 10, user_id: user.id)
+Sphere.create!(title: "City Garden in London", address: "London, UK", price: 10, user_id: user.id)
 Sphere.create!(title: "Warm fireplace", address: "Hamburg", price: 15, user_id: user.id)
 Sphere.create!(title: "Fowery, quiet workplace", address: "Munich", price: 9, user_id: user.id)
+Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", address: "Prenzlauer Berg, Berlin", price: 17, user_id: user.id)
+Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", price: 15, user_id: user.id)
 
 puts "Finished!"

@@ -1,13 +1,16 @@
-<div class="footer-links">
-  <h2>Find us on social media</h2>
+<div class="yellow-container">
+  <div class="logout">
+    <h2>log out</h2>
+    <%= link_to "log out here", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+  </div>
+
+  <div class="footer-links">
+    <h2>contact us</h2>
+    <p> share your <i class="fas fa-heart", color: yellow></i> - share your thoughs: </p> <br>
     <a href="#"><i class="fab fa-github"></i></a>
-    <a href="https://www.instagram.com/loki_the_berlin_collie/"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a> <br>
+    <a href="mailto:hello@balconia.xyz">hello@balconia.xyz</a> <br>
   </div>
-  <div class="footer-copyright">
-  <h2>Contact us</h2>
-     Share your <i class="fas fa-heart", color: yellow></i> - share your thoughs: <br>
-     <a href="mailto:hello@balconia.xyz">hello@balconia.xyz</a>
+</div>
 
-  </div>

@@ -1,0 +1,85 @@
+.card-sphere {
+  overflow: hidden;
+  height: auto;
+  width: 80%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.card-sphere img {
+  max-height: 50%;
+  width: 80%;
+  object-fit: cover;
+  padding-top: 16px;
+}
+
+.card-sphere a {
+  font-size: 20px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: black;
+}
+
+.card-sphere p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-sphere-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-sphere-show > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-sphere-show h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-sphere-show p {
+  font-size: 15px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-sphere .card-sphere-infos {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.card-sphere .card-sphere-infos a{
+  font-size: 15px;
+}
+
+.card-sphere-show .card-sphere-show-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-sphere-show-infos .card-sphere-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

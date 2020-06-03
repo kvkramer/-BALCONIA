@@ -3,10 +3,16 @@ class SpheresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    # @spheres = Sphere.all
+
+    # city search
+    if params[:query].present?
+      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
+    else
+      @spheres = Sphere.all
+    end
 
     # map
-    @spheres = Sphere.geocoded
+    @spheres.geocoded
     @markers = @spheres.map do |sphere|
       {
         lat: sphere.latitude,
@@ -14,13 +20,6 @@ class SpheresController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
         image_url: helpers.asset_url('spheres/1.jpg')
       }
-    end
-
-    # city search
-    if params[:query].present?
-      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
-    else
-      @spheres = Sphere.all
     end
 
     # price filtering
@@ -47,7 +46,7 @@ class SpheresController < ApplicationController
     @sphere = Sphere.new(sphere_params)
     @sphere.user = @user
     if @sphere.save
-      redirect_to spheres_path
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :new
     end
@@ -58,7 +57,7 @@ class SpheresController < ApplicationController
 
   def update
     if @sphere.update(sphere_params)
-      redirect_to sphere_path(@sphere)
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :edit
     end
@@ -69,7 +68,7 @@ class SpheresController < ApplicationController
     @spheres.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to spheres_path
+    redirect_to spheres_path, notice: 'This deleted successfully.'
   end
 
   private

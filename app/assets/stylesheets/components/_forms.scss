@@ -1,0 +1,17 @@
+.form-control:not(:focus) {
+    font-style:italic;
+    }
+
+      #edit-form {
+        color: black;
+        font-family: 'Quicksand', sans-serif;
+        margin-top: 30px
+      }
+    
+      #formControlRange {
+          color: $yellow;
+      }
+    
+      .form-control-range {
+        color: $yellow;
+      }

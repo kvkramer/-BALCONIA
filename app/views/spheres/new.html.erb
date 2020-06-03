@@ -1,95 +1,111 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-12 m-auto">
+
+  <div class="edit-banner" style="background-color: $yellow, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+  add your sphere
+</div>
 
     <div id="edit-form">
-        <div class="sphere-form">
-          <h1 id="header-yellow">Add your sphere's details</h1>
           <div class="mt-3">
                         <div class="row">
                         <div class="col-12">
                               <%= form_for(@sphere) do |f| %>
                                   <div class="form-group">
 
-                                    <%= f.label :title %>
-                                    <%= f.text_field :title, class: 'form-control', placeholder: ' Playful and energetic...' %>
+                                    <%= f.label :title, class: "lowercase" %>
+                                    <%= f.text_field :title, class: 'form-control', placeholder: ' sunny get-away...' %>
                                   </div>
-                                  <div class="form-group">
 
-                                    <%= f.label :description %>
-                                    <%= f.text_field :description, class: 'form-control', placeholder: ' Playful and energetic...' %>
-                                  </div>
                                   <div class="form-group">
-                                    <%= f.label :address %>
-                                    <%= f.text_area :address, class: 'form-control', placeholder: ' Isle of sphere, 1 pet road...' %>
+                                    <%= f.label :description, class: "lowercase" %>
+                                    <%= f.text_field :description, class: 'form-control', placeholder: ' playful and energetic...' %>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= f.label :address, class: "lowercase" %>
+                                    <%= f.text_area :address, class: 'form-control', placeholder: ' isle of sphere, 1 homeroad...' %>
                                   </div>
                                     <div class="form-group">
-                                    <%= f.label :price %>
-                                    <%= f.number_field :price, class: 'form-control', placeholder: 0 %>
+                                    <%= f.label :price, class: "lowercase" %>
+                                    <%= f.number_field :price, class: 'form-control', placeholder: "€" %>
                                   </div>
                                   <div class="form-group">
-                                    <%= f.label :photo %>
+                                    <%= f.label :photo, class: "lowercase" %>
                                     <%= f.file_field :photo, class: 'form-control' %>
                                   </div>
-                              
-                                  <div class="form-group">
-                                    <label for="formControlRange">Example Range input</label>
+
+
+                                   <div class="form-group">
+                                    <label for="formControlRange">distance from me</label>
                                     <input type="range" class="form-control-range" id="formControlRange">
                                   </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  balcony
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  garden
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  terrace
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  bbq
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  lots of flowers and plants
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  animals
-                                </label>
-                              </div>
+
+
+
                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  pool
-                                </label>
-                              </div>
+                                    <%= f.check_box :balcony, class:"form-check-input" %>
+                                    <%= f.label :balcony, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :garden, class:"form-check-input" %>
+                                    <%= f.label :garden, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :terrace, class:"form-check-input" %>
+                                    <%= f.label :terrace, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :sunny, class:"form-check-input" %>
+                                    <%= f.label :sunny, class: "lowercase form-check-label" %>
+                                  </div>
+                              <div class="form-check">
+                                    <%= f.check_box :highspeed_wifi, class:"form-check-input" %>
+                                    <%= f.label :highspeed_wifi, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :plants, class:"form-check-input" %>
+                                    <%= f.label :plants, class: "lowercase form-check-label" %>
+                                  </div>
+
+                               <div class="form-check">
+                                    <%= f.check_box :quiet, class:"form-check-input" %>
+                                    <%= f.label :quiet, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :spacious_desk, class:"form-check-input"%>
+                                    <%= f.label :spacious_desk, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :barbecue, class:"form-check-input" %>
+                                    <%= f.label :barbecue, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :cozy, class:"form-check-input" %>
+                                    <%= f.label :cozy, class: "lowercase form-check-label" %>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <%= f.check_box :pet_friendly, class:"form-check-input"%>
+                                    <%= f.label :pet_friendly, class: "lowercase form-check-label" %>
+                                  </div>
+
+
+
+
                                   <div class="mt-3">
-                                    <%= f.submit "Add", class: 'btn-yellow' %>
-                                    <%= link_to 'Cancel', spheres_path, class: 'btn btn-light' %>
+                                    <%= f.submit "add", class: 'btn-yellow' %>
+                                    <%= link_to 'cancel', spheres_path, class: 'btn btn-light' %>
                                   </div>
                               <% end %>
                               </div>
                         </div>
                 </div>
             </div>
-
-        </div>
-      </div>
-    </div>
   </div>
   <br>

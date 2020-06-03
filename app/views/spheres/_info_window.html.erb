@@ -1,2 +1,16 @@
-<h2><%= sphere.title %></h2>
-<p><%= sphere.address %></p>
+<div class="container mt-4">
+
+<div class="map-popup">
+  <% if sphere.photo.attached? %>
+    <%= cl_image_tag sphere.photo.key, crop: :fill %>
+  <% else %>
+    <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+  <% end %>
+
+  <div class="map-infos">
+  <%= link_to sphere.title, sphere_path(sphere) %>
+  <p><%= sphere.address %></p>
+  </div>
+</div>
+</div>
+
