@@ -22,8 +22,6 @@ class SpheresController < ApplicationController
       }
     end
 
-
-
     # price filtering
     if params[:price] == 'below 10'
       @spheres = Sphere.where("price < 20")
@@ -48,7 +46,7 @@ class SpheresController < ApplicationController
     @sphere = Sphere.new(sphere_params)
     @sphere.user = @user
     if @sphere.save
-      redirect_to spheres_path
+      redirect_to sphere_path(@sphere)
     else
       render :new
     end
