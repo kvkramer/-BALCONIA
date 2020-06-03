@@ -5,9 +5,9 @@ class SpheresController < ApplicationController
   def index
     # City search
     if params[:query].present?
-      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
+      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
     else
-      @spheres = Sphere.all
+      @spheres = policy_scope(Sphere).all
     end
 
     # Map
@@ -19,13 +19,13 @@ class SpheresController < ApplicationController
 raise
     # price filtering
     if params[:price] == 'below 10'
-      @spheres = Sphere.where("price < 20")
+      @spheres = policy_scope(Sphere).where("price < 20")
     elsif params[:price] == 'below 5'
-      @spheres = Sphere.where("price < 10")
+      @spheres = policy_scope(Sphere).where("price < 10")
     elsif params[:price] == 'free'
-      @spheres = Sphere.where("price = 0")
+      @spheres = policy_scope(Sphere).where("price = 0")
     else
-      @spheres = Sphere.all
+      @spheres = policy_scope(Sphere).all
     end
 
     @markers = @spheres.map do |sphere|
@@ -40,47 +40,60 @@ raise
   end
 
   def show
+    authorize @sphere
   end
 
   def new
     @sphere = Sphere.new
+
+    authorize @sphere
   end
 
   def create
     @user = current_user
     @sphere = Sphere.new(sphere_params)
     @sphere.user = @user
+
+    authorize @sphere
+
     if @sphere.save
-      redirect_to sphere_path(@sphere)
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :new
     end
   end
 
   def edit
+    authorize @sphere
   end
 
   def update
+    authorize @sphere
+
     if @sphere.update(sphere_params)
-      redirect_to sphere_path(@sphere)
+      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
     else
       render :edit
     end
   end
 
   def destroy
-    @spheres = Sphere.find(params[:id])
-    @spheres.destroy
+    @user = current_user
+    @sphere = Sphere.find(params[:id])
+
+    authorize @sphere
+
+    @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to spheres_path
+    redirect_to root_path, notice: 'This deleted successfully.'
   end
 
   private
 
   # strong params
   def sphere_params
-    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue)
+    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue, :balcony, :garden, :terrace, :sunny, :highspeed_wifi, :plants, :quiet, :spacious_desk, :cozy, :pet_friendly)
   end
 
   def set_sphere
