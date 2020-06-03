@@ -1,29 +1,36 @@
-<div class="page-container">
-  <h1> Welcome to <%= @sphere.title %> </h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 m-auto">
+        <div class="edit-banner" style="background-color: $yellow, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+          Welcome to <%= @sphere.title %>
+        </div>
+        <br>
+        <div class="card-sphere-show">
+          <% if @sphere.photo.attached? %>
+            <%= cl_image_tag @sphere.photo.key, crop: :fill %>
+          <% else %>
+            <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+          <% end %>
 
-<div class="card-sphere-show">
-    <% if @sphere.photo.attached? %>
-      <%= cl_image_tag @sphere.photo.key, crop: :fill %>
-    <% else %>
-      <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-    <% end %>
+          <div class="card-sphere-show-infos">
+            <div>
+              <p> address: <%= @sphere.address %></p>
+              <p> description: <%= @sphere.description %></p>
+              <p> contact host: <%= @sphere.user.email %></p>
+              <p> read reviews: </p>
+              <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
+            </div>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" />
+          </div>
+        </div>
 
-    <div class="card-sphere-show-infos">
-      <div>
-        <p> address: <%= @sphere.address %></p>
-        <p> description: <%= @sphere.description %></p>
+        <div class="flex-container">
+          <button class="btn btn-outline-secondary flex-item"><%= link_to "Continue search",  spheres_path %></button>
+          <button class="btn btn-outline-secondary flex-item"><%= link_to "Book",  new_sphere_booking_path(@sphere) %></button>
+          <button class="btn btn-outline-secondary flex-item"><%= link_to "Edit",  edit_sphere_path %></button>
+          <button class="btn btn-outline-secondary flex-item"><%= link_to "Delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
+        </div>
       </div>
-        <p> contact owner: <%= @sphere.user.email %></p>
-       <p class="card-sphere-show-pricing"> cost per day: <%= @sphere.price %>€</p>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" />
     </div>
   </div>
-
-  <div class="flex-container">
-  <button class="btn btn-outline-secondary flex-item"><%= link_to "Back to all spheres",  spheres_path %></button>
-  <button class="btn btn-outline-secondary flex-item"><%= link_to "Book this sphere",  new_sphere_booking_path(@sphere) %></button>
-  <button class="btn btn-outline-secondary flex-item"><%= link_to "Edit this sphere",  edit_sphere_path %></button>
-  <button class="btn btn-outline-secondary flex-item"><%= link_to "Delete this sphere", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
-  </div>
-
 </div>
