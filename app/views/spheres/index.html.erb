@@ -5,3 +5,11 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+
+<%= form_for :search, method: :get do |f| %>
+  <%= f.check_box :balcony %>
+  <%= f.check_box :sunny %>
+  <%= f.check_box :quiet %>
+  <%= f.check_box :garden %>
+  <%= f.submit "filter" %>
+<% end %>
