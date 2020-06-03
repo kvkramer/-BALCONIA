@@ -1,6 +1,14 @@
 // Specific CSS for your home-page
+
+#background-image {
+  height: 100vh;
+  display: flex;
+}
+
 .page-container {
   height: 100vh;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .form-group {

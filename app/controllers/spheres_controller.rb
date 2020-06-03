@@ -3,25 +3,20 @@ class SpheresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-
-    # city search
+    # City search
     if params[:query].present?
       @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
     else
       @spheres = policy_scope(Sphere).all
     end
 
-    # map
+    # Map
     @spheres.geocoded
-    @markers = @spheres.map do |sphere|
-      {
-        lat: sphere.latitude,
-        lng: sphere.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
-        image_url: helpers.asset_url('spheres/1.jpg')
-      }
-    end
 
+      # Filtering options
+      params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
+      choices = params["search"].select { |key, value| value != "" }
+raise
     # price filtering
     if params[:price] == 'below 10'
       @spheres = policy_scope(Sphere).where("price < 20")
@@ -32,6 +27,16 @@ class SpheresController < ApplicationController
     else
       @spheres = policy_scope(Sphere).all
     end
+
+    @markers = @spheres.map do |sphere|
+      {
+        lat: sphere.latitude,
+        lng: sphere.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
+        image_url: helpers.asset_url('spheres/1.jpg')
+      }
+    end
+
   end
 
   def show
