@@ -6,7 +6,7 @@
     <%= link_to icon('fas', 'plus'), new_sphere_path, class: "nav-item" %>
     <%= link_to icon('fas', 'calendar'), bookings_path, class: "nav-item" %>
     <% if user_signed_in? %>
-      <%= link_to icon('fas', 'user'), root_path, class: "nav-item" %>
+      <%= link_to icon('fas', 'user'), pages_contact_path, class: "nav-item" %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "nav-item" %>
     <% end %>
