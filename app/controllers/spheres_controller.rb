@@ -3,10 +3,16 @@ class SpheresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    # @spheres = Sphere.all
+
+    # city search
+    if params[:query].present?
+      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
+    else
+      @spheres = Sphere.all
+    end
 
     # map
-    @spheres = Sphere.geocoded
+    @spheres.geocoded
     @markers = @spheres.map do |sphere|
       {
         lat: sphere.latitude,
@@ -16,12 +22,7 @@ class SpheresController < ApplicationController
       }
     end
 
-    # city search
-    if params[:query].present?
-      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
-    else
-      @spheres = Sphere.all
-    end
+
 
     # price filtering
     if params[:price] == 'below 10'
