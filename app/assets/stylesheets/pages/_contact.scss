@@ -1,28 +1,33 @@
-.yellow-container {
-  background-color: $yellow !important;
-  height: 100vh;
-}
-
 .footer-links {
   text-align: center;
 }
-.footer-links h2{
-  color: white;
-}
+
 .footer-links a{
   color: black;
 }
-
 
 .logout {
   text-align: center;
   margin: 30px;
 }
 
-.logout h2{
-  color: white;
-}
-
 .logout a, p{
   color: black;
+}
+
+.card-sphere-show-contact {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.card-sphere-show-contact > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.edit-banner {
+  margin-bottom: 20px;
 }
