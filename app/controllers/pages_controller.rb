@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def contact
+    @spheres = current_user.spheres
+
+  end
 end
