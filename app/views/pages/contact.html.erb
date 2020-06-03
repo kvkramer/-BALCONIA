@@ -1,16 +1,44 @@
-<div class="yellow-container">
+<div class="container mt-4">
+  <div class="edit-banner"> your apartments </div>
+
+  <% @spheres.each do |sphere|  %>
+    <div class="card-sphere-show-contact">
+        <% if sphere.photo.attached? %>
+          <%= cl_image_tag sphere.photo.key, crop: :fill %>
+        <% else %>
+          <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+        <% end %>
+
+        <div class="card-sphere-show-infos">
+
+            <p> address: <%= sphere.address.downcase  %></p>
+            <p> description: <%= sphere.description %></p>
+            <p> contact host: <%= sphere.user.email %></p>
+            <p> read reviews: </p>
+            <p class="card-sphere-show-pricing"> cost per hour: <%= sphere.price %>€</p>
+          </div>
+        </div>
+
+  <% end %>
+
   <div class="logout">
-    <h2>log out</h2>
-    <%= link_to "log out here", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <% if user_signed_in? %>
+        <div class="edit-banner"> log out </div>
+        <%= link_to "log out here", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <% else %>
+      <div class="edit-banner"> log in </div>
+        <%= link_to "Login", new_user_session_path, class: "nav-item" %>
+    <% end %>
   </div>
 
-  <div class="footer-links">
-    <h2>contact us</h2>
-    <p> share your <i class="fas fa-heart", color: yellow></i> - share your thoughs: </p> <br>
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a> <br>
-    <a href="mailto:hello@balconia.xyz">hello@balconia.xyz</a> <br>
-  </div>
+    <div class="footer-links">
+      <div class="edit-banner"> contact us </div>
+      <a href="#"><i class="fab fa-github"></i></a> -
+      <a href="#"><i class="fab fa-instagram"></i></a> -
+      <a href="#"><i class="fab fa-facebook"></i></a> -
+      <a href="mailto:hello@balconia.xyz">hello@balconia.xyz</a>
+      <p><i class="fas fa-heart", color: yellow></i> share your thoughs! </p>
+    </div>
 </div>
+
 
