@@ -13,10 +13,10 @@ class SpheresController < ApplicationController
     # Map
     @spheres.geocoded
 
-      # Filtering options
-      params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
-      choices = params["search"].select { |key, value| value != "" }
-raise
+    # # Filtering options
+    # params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
+    # choices = params["search"].select { |key, value| value != "" }
+
     # price filtering
     if params[:price] == 'below 10'
       @spheres = policy_scope(Sphere).where("price < 20")
