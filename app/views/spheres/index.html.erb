@@ -2,14 +2,30 @@
   <div id="map"
   style="width: 100%; height: 700px;"
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  data-mapbox-api-key="pk.eyJ1IjoibWVhbGxpZSIsImEiOiJja2F4cjJndjkwMjl3MnJtaTRhMGcyNmNmIn0.1OPiyW1_shSWTzBg_YxLiA">
   </div>
 </div>
 
-<%= form_for :search, method: :get do |f| %>
-  <%= f.check_box :balcony %>
-  <%= f.check_box :sunny %>
-  <%= f.check_box :quiet %>
-  <%= f.check_box :garden %>
+<%= simple_form_for :query, method: :get do |f| %>
+  <%= f.check_box :barbecue, { checked: params[:query][:barbecue] ? true : false }, true, false %>
+  <%= f.label :barbecue %>
+  <%= f.check_box :balcony, { checked: params[:query][:balcony] ? true : false }, true, false %>
+  <%= f.label :balcony %>
+  <%= f.check_box :sunny, { checked: params[:query][:sunny] ? true : false }, true, false %>
+  <%= f.label :sunny %>
+  <%= f.check_box :quiet, { checked: params[:query][:quiet] ? true : false }, true, false %>
+  <%= f.label :quiet %>
+  <%= f.check_box :garden, { checked: params[:query][:garden] ? true : false }, true, false %>
+  <%= f.label :garden %>
+  <%= f.check_box :terrace, { checked: params[:query][:terrace] ? true : false }, true, false %>
+  <%= f.label :terrace %>
+  <%= f.check_box :plants, { checked: params[:query][:plants] ? true : false }, true, false %>
+  <%= f.label :plants %>
+  <%= f.check_box :spacious_desk, { checked: params[:query][:spacious_desk] ? true : false }, true, false %>
+  <%= f.label :spacious_desk %>
+  <%= f.check_box :highspeed_wifi, { checked: params[:query][:highspeed_wifi] ? true : false }, true, false %>
+  <%= f.label :highspeed_wifi %>
+  <%= f.check_box :cozy, { checked: params[:query][:cozy] ? true : false }, true, false %>
+  <%= f.label :cozy %>
   <%= f.submit "filter" %>
 <% end %>

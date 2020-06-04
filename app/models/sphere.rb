@@ -3,8 +3,8 @@ class Sphere < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
 
-  validates :title, presence: true, length:{minimum:4}
-  validates :address, presence: true, length:{minimum:10}
+  validates :title, presence: true, length: { minimum:4 }
+  validates :address, presence: true, length: { minimum:1 }
   validates :price, presence: true
 
   geocoded_by :address
