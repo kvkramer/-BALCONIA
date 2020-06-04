@@ -6,6 +6,5 @@ class PagesController < ApplicationController
 
   def contact
     @spheres = current_user.spheres
-
   end
 end

@@ -14,9 +14,9 @@ class SpheresController < ApplicationController
     @spheres.geocoded
 
       # Filtering options
-      params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
-      choices = params["search"].select { |key, value| value != "" }
-raise
+     # params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
+    # choices = params["search"].select { |key, value| value != "" }
+
     # price filtering
     if params[:price] == 'below 10'
       @spheres = policy_scope(Sphere).where("price < 20")
@@ -36,7 +36,6 @@ raise
         image_url: helpers.asset_url('spheres/1.jpg')
       }
     end
-
   end
 
   def show
