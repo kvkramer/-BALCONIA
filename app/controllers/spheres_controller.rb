@@ -2,6 +2,13 @@ class SpheresController < ApplicationController
   before_action :set_sphere, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: [:show, :index]
 
+  # Uncomment when you *really understand* Pundit!
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # def user_not_authorized
+  #   flash[:alert] = "You are not authorized to perform this action."
+  #   redirect_to(root_path)
+  # end
+
   def index
     # City search
     if params[:query].present?
@@ -11,7 +18,7 @@ class SpheresController < ApplicationController
     end
 
     # Map
-    @spheres.geocoded
+    # @spheres.geocoded
 
     # # Filtering options
     # params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
@@ -28,7 +35,7 @@ class SpheresController < ApplicationController
       @spheres = policy_scope(Sphere).all
     end
 
-    @markers = @spheres.map do |sphere|
+    @markers = @spheres.geocoded.map do |sphere|
       {
         lat: sphere.latitude,
         lng: sphere.longitude,
