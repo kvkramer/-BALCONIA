@@ -1,13 +1,27 @@
 class BookingsController < ApplicationController
+before_action :authenticate_user!
+  include Pundit
+
+  # Pundit: white-list approach.
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
+  # Uncomment when you *really understand* Pundit!
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # def user_not_authorized
+  #   flash[:alert] = "You are not authorized to perform this action."
+  #   redirect_to(root_path)
+  # end
 
   def index
+
     #Find the user we're creating the booking for
     #@user = User.find(params[:user_id])
     # Asssociate the sphere and the user
     #@sphere.user = @user
     # Display all the bookings
 
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).all
 
     # @user_bookings = booking.where(user = current_user)
   end
@@ -15,6 +29,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     set_sphere
+    authorize @booking
   end
 
   def create
@@ -25,6 +40,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.sphere = @sphere
     @booking.price = @price
+    authorize @booking
     if @booking.save
       redirect_to bookings_path, notice: 'Added booking.'
     else
@@ -33,8 +49,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @bookings = Booking.find(params[:id])
-    @bookings.destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
     redirect_to bookings_path, notice: 'This booking was cancelled.'
@@ -48,6 +65,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:date, :booking_price, :user_id, :sphere_id, :starttime, :endtime, :status)
+  end
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
 end
