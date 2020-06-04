@@ -1,9 +1,10 @@
-<div class="col-12">
+<div id="map_view" class="col-12">
   <div id="map"
   style="width: 100%; height: 700px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+    <button id="list_button" class="btn-yellow flex-item">List View</button>
 </div>
 
 <%= form_for :search, method: :get do |f| %>
@@ -13,3 +14,30 @@
   <%= f.check_box :garden %>
   <%= f.submit "filter" %>
 <% end %>
+
+<%= form_tag spheres_path, method: :get do %>
+  <%= select_tag(:price, options_for_select(["below 10", "below 5", "free"], selected: params[:price]), :include_blank => "Price") %>
+  <%= submit_tag "Filter!", class: "btn btn-flat" %>
+  <% end %>
+
+
+<div id="list_view" class="col-12 hidden">
+        <% @spheres.each do |sphere| %>
+          <div class="card-sphere">
+
+            <% if sphere.photo.attached? %>
+            <%= cl_image_tag sphere.photo.key, crop: :fill %>
+            <% else %>
+            <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+            <% end %>
+
+            <div class="card-sphere-infos">
+              <%= link_to sphere.title, sphere_path(sphere) %>
+              <p>Living in <%= sphere.address %></p>
+              <p>Cost per day: <%= sphere.price %>€</p>
+            </div>
+          </div>
+        <% end %>
+        <button id="map_button" class="btn-yellow flex-item">Map View</button>
+      </div>
+

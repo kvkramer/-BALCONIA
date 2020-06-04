@@ -1,6 +1,6 @@
 class SpheresController < ApplicationController
   before_action :set_sphere, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:show, :index, :list]
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -38,6 +38,15 @@ class SpheresController < ApplicationController
         lng: sphere.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
       }
+    end
+  end
+
+  def list
+    authorize @sphere
+    if params[:query].present?
+      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
+    else
+      @spheres = policy_scope(Sphere).all
     end
 
   end
