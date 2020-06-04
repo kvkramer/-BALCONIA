@@ -10,13 +10,22 @@ class SpheresController < ApplicationController
   # end
 
   def index
+    @spheres = policy_scope(Sphere).all
     # City search
     if params[:query].present?
-      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
-    else
-      @spheres = policy_scope(Sphere).all
+      @spheres = @spheres.where('address ILIKE ?', "%#{params[:query]}%")
     end
 
+    # Balcony seach
+    if params[:search].present?
+
+      if params[:search][:balcony] == "1"
+        @spheres = @spheres.where(balcony: true)
+      end
+      if params[:search][:sunny] == "1"
+        @spheres = @spheres.where(sunny: true)
+      end
+    end
     # # Filtering options
     # params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
     # choices = params["search"].select { |key, value| value != "" }
@@ -39,7 +48,6 @@ class SpheresController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
       }
     end
-
   end
 
   def show
@@ -95,6 +103,11 @@ class SpheresController < ApplicationController
   private
 
   # strong params
+
+  def search_params
+    params.require(:search).permit(:balcony)
+  end
+
   def sphere_params
     params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue, :balcony, :garden, :terrace, :sunny, :highspeed_wifi, :plants, :quiet, :spacious_desk, :cozy, :pet_friendly)
   end

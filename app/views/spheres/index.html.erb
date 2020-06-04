@@ -1,3 +1,18 @@
+<%query = params[:search][:query] if !params[:search].nil?%>
+  <%balcony = params[:search][:balcony] if !params[:search].nil?%>
+  <%sunny = params[:search][:sunny] if !params[:search].nil?%>
+  <%price = params[:search][:booking] if !params[:search].nil?%>
+
+
+  <%= simple_form_for :search, url: spheres_path, method: "GET", html: { class: 'form-remove-b-margin', id: 'autosubmit-form' } do |f| %>
+      <%=f.input :balcony, as: :boolean, input_html: {class: 'input-field simple_form-align mb-2', value: balcony}%>
+      <%=f.input :sunny, as: :boolean, input_html: {class: 'input-field simple_form-align mb-2', value: sunny}%>
+      <%= f.submit %>
+      <h5 class="mb-2">Amenities</h5>
+  <% end %>
+
+
+
 <div class="col-12">
   <div id="map"
   style="width: 100%; height: 700px;"
@@ -5,11 +20,3 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<%= form_for :search, method: :get do |f| %>
-  <%= f.check_box :balcony %>
-  <%= f.check_box :sunny %>
-  <%= f.check_box :quiet %>
-  <%= f.check_box :garden %>
-  <%= f.submit "filter" %>
-<% end %>

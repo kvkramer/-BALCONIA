@@ -16,7 +16,7 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 user = User.create(email: "inmeallie@gmail.com", password: "123456")
 
-Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", price: 10, user_id: user.id)
+Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", price: 10, user_id: user.id, balcony: true)
 Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", price: 10, user_id: user.id)
 Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", price: 10, user_id: user.id)
 Sphere.create!(title: "City Garden in London", address: "London, UK", price: 10, user_id: user.id)
@@ -26,3 +26,6 @@ Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", addre
 Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", price: 15, user_id: user.id)
 
 puts "Finished!"
+
+
+amenities = ["balcony", "garden", "terrace", "plants", "quiet", "sunny", "spacious_desk", "highspeed_wifi", "pet_friendly", "cozy"]
