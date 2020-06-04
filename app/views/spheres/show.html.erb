@@ -16,7 +16,7 @@
               <p> address: <%= @sphere.address.downcase %></p>
               <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
               <p> <%= @sphere.description %></p>
-              
+
 
               <% if @sphere.balcony %>
               <p> balcony </p>
@@ -66,13 +66,17 @@
         </div>
 <br>
         <div class="flex-container">
-          <% if @sphere.user==current_user%>
-              <button class="btn-yellow flex-item"><%= link_to "edit",  edit_sphere_path %></button>
-              <button class="btn-yellow flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
-            <% else %>
-              <button class="btn-yellow flex-item"><%= link_to "continue search",  spheres_path %></button>
-              <button class="btn-yellow flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
-           <% end %>
+
+          <% if policy(@sphere).edit? %>
+            <button class="btn-yellow flex-item"><%= link_to "edit",  edit_sphere_path %></button>
+          <% end %>
+          <% if policy(@sphere).destroy? %>
+            <button class="btn-yellow flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
+          <% end %>
+          <% if @sphere.user != current_user %>
+            <button class="btn-yellow flex-item"><%= link_to "search", spheres_path %></button>
+            <button class="btn-yellow flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
+          <% end %>
           <br>
          
 
