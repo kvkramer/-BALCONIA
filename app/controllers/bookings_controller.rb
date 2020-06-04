@@ -51,7 +51,7 @@ before_action :authenticate_user!
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
-    @bookings.destroy
+    @booking.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
     redirect_to bookings_path, notice: 'This booking was cancelled.'
