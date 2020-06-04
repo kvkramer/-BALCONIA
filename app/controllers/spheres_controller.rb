@@ -37,7 +37,6 @@ class SpheresController < ApplicationController
         lat: sphere.latitude,
         lng: sphere.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
-        # image_url: helpers.asset_url('spheres/1.jpg')
       }
     end
 
