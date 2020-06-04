@@ -1,11 +1,11 @@
 .navbar {
   background: white;
-  // position: -webkit-sticky; /* Safari */
   position: sticky;
   bottom: 0;
   height: 8vh;
   width: 100%;
   box-shadow: 0px -0.5px 2px grey;
+  z-index: 3;
 }
 .navbar-items {
   margin: auto;

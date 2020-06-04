@@ -6,7 +6,9 @@ class SpheresController < ApplicationController
     # City search
     @spheres = policy_scope(Sphere)
     if params[:query].present?
-      search_params = params[:query].select { |key, value| value == 'true'}
+      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
+    elsif params[:search].present?
+      search_params = params[:search].select { |key, value| value == 'true'}
       search_params.permit!
       @spheres = Sphere.where(search_params)
     else
