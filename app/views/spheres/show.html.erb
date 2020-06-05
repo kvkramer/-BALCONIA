@@ -2,87 +2,101 @@
   <div class="row">
     <div class="col-12 m-auto">
 
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <% if @sphere.photos.attached? %>
+                <% @sphere.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+                <% end %>
+              <% end %>
+            </div>
+      
+          </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+
         <div class="card-sphere-show">
-          <% if @sphere.photo.attached? %>
-            <%= cl_image_tag @sphere.photo.key, crop: :fill %>
-          <% else %>
-            <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-          <% end %>
 
           <div class="card-sphere-show-infos">
             <div>
-              <h1 id="showpage_title">Welcome to <%= @sphere.title %></h1>
-
-              <p> address: <%= @sphere.address.downcase %></p>
-              <p class="card-sphere-show-pricing"> cost per hour: <%= @sphere.price %>€</p>
-              <p> <%= @sphere.description %></p>
-
-
-              <% if @sphere.balcony %>
-              <p> balcony </p>
-              <% end %>
-
-              <% if @sphere.garden %>
-              <p> garden </p>
-              <% end %>
-
-              <% if @sphere.terrace %>
-              <p> terrace </p>
-              <% end %>
-
-               <% if @sphere.sunny %>
-              <p> sunny </p>
-              <% end %>
-
-               <% if @sphere.highspeed_wifi %>
-              <p> highspeed_wifi </p>
-              <% end %>
-
-               <% if @sphere.plants %>
-              <p> plants </p>
-              <% end %>
-               <% if @sphere.quiet %>
-              <p> quiet </p>
-              <% end %>
-               <% if @sphere.spacious_desk %>
-              <p> spacious_desk </p>
-              <% end %>
-               <% if @sphere.barbecue %>
-              <p> barbecue </p>
-              <% end %>
-               <% if @sphere.cozy %>
-              <p> cozy </p>
-              <% end %>
-               <% if @sphere.pet_friendly %>
-              <p> pet_friendly </p>
-              <% end %>
+              <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
               <br>
-              <p> reviews </p>
+              <p> <i class="fas fa-map-marker-alt"></i>  <%= @sphere.address %></p>
+              <p> <i class="far fa-comment"></i>  <%= @sphere.description %></p>
+              
+              <p id="showpage_price"> <i class="fas fa-euro-sign"></i>  <%= @sphere.price %>€</p>
+              <br>
 
+              <div>
+                <% if @sphere.balcony %>
+                <p> balcony </p>
+                <% end %>
+
+                <% if @sphere.garden %>
+                <p> garden </p>
+                <% end %>
+
+                <% if @sphere.terrace %>
+                <p> terrace </p>
+                <% end %>
+
+                <% if @sphere.sunny %>
+                <p> sunny </p>
+                <% end %>
+
+                <% if @sphere.highspeed_wifi %>
+                <p> highspeed_wifi </p>
+                <% end %>
+
+                <% if @sphere.plants %>
+                <p> plants </p>
+                <% end %>
+                <% if @sphere.quiet %>
+                <p> quiet </p>
+                <% end %>
+                <% if @sphere.spacious_desk %>
+                <p> spacious_desk </p>
+                <% end %>
+                <% if @sphere.barbecue %>
+                <p> barbecue </p>
+                <% end %>
+                <% if @sphere.cozy %>
+                <p> cozy </p>
+                <% end %>
+                <% if @sphere.pet_friendly %>
+                <p> pet_friendly </p>
+                <% end %>
+              </div>
             </div>
-
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" />
           </div>
         </div>
 <br>
         <div class="flex-container">
-
+          <div>
           <% if policy(@sphere).edit? %>
-            <button class="btn-yellow flex-item"><%= link_to "edit",  edit_sphere_path %></button>
+            <%= link_to "edit",  edit_sphere_path,  class: "btn-yellow flex-item" %>
           <% end %>
           <% if policy(@sphere).destroy? %>
-            <button class="btn-yellow flex-item"><%= link_to "delete", sphere_path(@sphere), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%></button>
+           <%= link_to "delete", sphere_path(@sphere), class: "btn-yellow flex-item", method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
           <% end %>
           <% if @sphere.user != current_user %>
-            <button class="btn-yellow flex-item"><%= link_to "search", spheres_path %></button>
-            <button class="btn-yellow flex-item"><%= link_to "book",  new_sphere_booking_path(@sphere) %></button>
+           <%= link_to "search", spheres_path,  class: "btn-yellow flex-item" %>
+           <%= link_to "book",  new_sphere_booking_path(@sphere), class: "btn-yellow flex-item" %>
           <% end %>
+          </div>
           <br>
          
-
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Reviews</h5>
+        <div class="card col-12 m-auto" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
+          <div class="card-body" style="text-align: left;">
+            <h5 class="card-title">reviews</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
           <ul class="list-group list-group-flush">
@@ -91,11 +105,18 @@
             <li class="list-group-item">Vestibulum at eros</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <a href="#" class="card-link">card link</a>
+            <a href="#" class="card-link">another link</a>
           </div>
         </div>
-          
+         <br> 
+
+         <div class="card col-12 m-auto" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+            <h4>meet your host:</h4>
+            <p><%= @sphere.user.email %></p>
+         </div>
+         <br>
   </div>
 </div>
 

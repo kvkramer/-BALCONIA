@@ -6,34 +6,33 @@
 
     <div id="edit-form">
           <div class="mt-3">
-                        <div class="row">
+                      <div class="row">
                         <div class="col-12">
-                              <%= form_for(@sphere) do |f| %>
+                              <%= simple_form_for(@sphere) do |f| %>
                                   <div class="form-group">
 
                                     <%= f.label :title, class: "lowercase" %>
-
-                                    <%= f.text_field :title, class: 'form-control', placeholder: ' *Sunny Get-away...' %>
+                                    <%= f.text_field :title, class: 'form-control', placeholder: ' Sunny rooftop terrace...' %>
                                   </div>
 
                                   <div class="form-group">
                                     <%= f.label :description, class: "lowercase" %>
-                                    <%= f.text_field :description, class: 'form-control', placeholder: ' Playful and energetic...' %>
+                                    <%= f.text_field :description, class: 'form-control', placeholder: ' Enjoy the warm summer vibes...' %>
                                   </div>
 
                                   <div class="form-group">
                                     <%= f.label :address, class: "lowercase" %>
-
-                                    <%= f.text_area :address, class: 'form-control', placeholder: ' *Isle of sphere, 1 pet road...' %>
+                                    <%= f.text_area :address, class: 'form-control', placeholder: ' 1 Paradise Road, Berlin...' %>
 
                                   </div>
                                     <div class="form-group">
                                     <%= f.label :price, class: "lowercase" %>
-                                    <%= f.number_field :price, class: 'form-control', placeholder: "*€" %>
+                                    <%= f.number_field :price, class: 'form-control', placeholder: " €" %>
                                   </div>
-                                  <div class="form-group">
-                                    <%= f.label :photo, class: "lowercase" %>
-                                    <%= f.file_field :photo, class: 'form-control' %>
+
+                                  <div class="form-group lowercase">
+                                    <%= f.label :photos %>
+                                    <%= f.input :photos, as: :file, input_html: { multiple: true }, class: 'form-control' %>
                                   </div>
 
 
