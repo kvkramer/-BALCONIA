@@ -27,11 +27,13 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import '../plugins/list_page_loader'
+import { initPageLoader } from '../plugins/list_page_loader';
 
-import '../plugins/map_filter'
+import { initFilter } from '../plugins/map_filter';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initPageLoader();
+  initFilter();
 });
 
