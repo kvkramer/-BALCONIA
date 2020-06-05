@@ -21,7 +21,7 @@
 
     <%= yield %>
 
-  <% if controller_name != 'pages' && action_name != 'home' %>
+  <% if params[:action] != 'home' %>
     <%= render 'shared/navbar' %>
   <% end %>
 
