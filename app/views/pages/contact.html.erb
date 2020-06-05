@@ -1,6 +1,6 @@
 <div class="page-container">
 <div class="container mt-4">
-  <div class="edit-banner"> your apartments </div>
+  <div class="edit-banner"> your spheres </div>
 
   <% @spheres.each do |sphere|  %>
     <div class="card-sphere-show-contact">
@@ -18,7 +18,7 @@
             <p> description: <%= sphere.description %></p>
             <p> contact host: <%= sphere.user.email %></p>
             <p> read reviews: </p>
-            <p class="card-sphere-show-pricing"> cost per hour: <%= sphere.cost_per_day %>€</p>
+            <p class="card-sphere-show-pricing"> cost per day: <%= sphere.cost_per_day %>€</p>
           </div>
         </div>
 
