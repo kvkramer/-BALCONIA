@@ -52,13 +52,14 @@
       <%= f.check_box :cozy, { checked: params[:search].present? && params[:search][:cozy] ? true : false }, true, false %>
       <%= f.label :cozy %>
     </div>
+    <div>
+      <%= select_tag(:cost_per_day, options_for_select(["below 20", "below 10", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
+    </div>
     <%= f.submit "filter" %>
   <% end %>
   <br>
-  <%= form_tag spheres_path, method: :get do %>
-    <%= select_tag(:cost_per_day, options_for_select(["below 10", "below 5", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
-    <%= submit_tag "filter!", class: "btn btn-flat" %>
-  <% end %>
+
+
 
 </div>
 

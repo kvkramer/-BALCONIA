@@ -23,15 +23,15 @@ class SpheresController < ApplicationController
     end
 
     # price filtering
-    # if params[:price] == 'below 10'
-    #   @spheres = policy_scope(Sphere).where("price < 20")
-    # elsif params[:price] == 'below 5'
-    #   @spheres = policy_scope(Sphere).where("price < 10")
-    # elsif params[:price] == 'free'
-    #   @spheres = policy_scope(Sphere).where("price = 0")
-    # else
-    #   @spheres = policy_scope(Sphere).all
-    # end
+    if params[:cost_per_day] == 'below 20'
+      @spheres = policy_scope(Sphere).where("cost_per_day < 20")
+    elsif params[:cost_per_day] == 'below 10'
+      @spheres = policy_scope(Sphere).where("cost_per_day < 10")
+    elsif params[:cost_per_day] == 'free'
+      @spheres = policy_scope(Sphere).where("cost_per_day = 0")
+    else
+      @spheres = policy_scope(Sphere).all
+    end
 
     @markers = @spheres.geocoded.map do |sphere|
       {
@@ -40,6 +40,8 @@ class SpheresController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
       }
     end
+
+    console
   end
 
   def show
