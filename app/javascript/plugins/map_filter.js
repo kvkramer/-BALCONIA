@@ -1,17 +1,23 @@
 // map_filter.js
 
-if (document.querySelector('.map-filters-toggle') != undefined) {
-  const filterToggle = document.querySelector('.map-filters-toggle');
-  const filterList = document.querySelector('.map-filters');
-  const overlay = document.querySelector('.overlay');
+const initFilter = () => {
 
-  filterToggle.addEventListener('click', () => {
-    filterList.classList.toggle('open')
-    overlay.classList.toggle('open')
-  });
+  if (document.querySelector('.map-filters-toggle')) {
+    const filterToggle = document.querySelector('.map-filters-toggle');
+    const filterList = document.querySelector('.map-filters');
+    const overlay = document.querySelector('.overlay');
 
-  overlay.addEventListener('click', () => {
-    filterList.classList.toggle('open')
-    overlay.classList.toggle('open');
-  });
-}
+    filterToggle.addEventListener('click', () => {
+      filterList.classList.toggle('open')
+      overlay.classList.toggle('open')
+    });
+
+    overlay.addEventListener('click', () => {
+      filterList.classList.toggle('open')
+      overlay.classList.toggle('open');
+    });
+  };
+
+};
+
+export {initFilter};

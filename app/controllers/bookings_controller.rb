@@ -22,7 +22,6 @@ before_action :authenticate_user!
     # Display all the bookings
 
     @bookings = policy_scope(Booking).all
-
     # @user_bookings = booking.where(user = current_user)
   end
 
