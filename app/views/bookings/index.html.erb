@@ -8,7 +8,6 @@
 
       <div class="card-sphere">
 
-
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% if booking.sphere.photos.attached? %>
@@ -29,11 +28,10 @@
           </a>
         </div>
 
-
         <div class="card-sphere-infos">
           <h5><%= booking.sphere.title %></h5>
           <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
-          <p> 💲 Cost per day: <%= booking.cost_per_day %></p>
+          <p> 💲 cost per day: <%= booking.cost_per_day %></p>
           <% if policy(booking).destroy? %>
           <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
           <% end %>
