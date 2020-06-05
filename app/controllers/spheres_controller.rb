@@ -104,14 +104,14 @@ class SpheresController < ApplicationController
     @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to root_path, notice: 'This deleted successfully.'
+    redirect_to root_path, notice: 'This was deleted successfully.'
   end
 
   private
 
   # strong params
   def sphere_params
-    params.require(:sphere).permit(:title, :address, :description, :price, :photo, :barbecue, :balcony, :garden, :terrace, :sunny, :highspeed_wifi, :plants, :quiet, :spacious_desk, :cozy, :pet_friendly)
+    params.require(:sphere).permit(:title, :address, :description, :price, :barbecue, :balcony, :garden, :terrace, :sunny, :highspeed_wifi, :plants, :quiet, :spacious_desk, :cozy, :pet_friendly, photos: [])
   end
 
   def set_sphere
