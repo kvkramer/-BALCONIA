@@ -1,33 +1,36 @@
 <div class="page-container">
-<div class="container mt-4">
-<div class="edit-banner"> all your bookings </div>
+  <div class="container mt-4">
+    <div class="edit-banner"> all your bookings </div>
 
-<div class="spheres-container">
-<% @bookings.each do |booking| %>
+    <div class="spheres-container">
+      <% @bookings.each do |booking| %>
 
 
-<div class="card-sphere">
+      <div class="card-sphere">
 
-  <% if booking.sphere.photo.attached? %>
-    <%= cl_image_tag booking.sphere.photo.key, crop: :fill %>
+
+  <% if @sphere.photos.attached? %>
+    <% @sphere.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+    <% end %>
   <% else %>
     <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
   <% end %>
 
-   <div class="card-sphere-infos">
-  <h5><%= booking.sphere.title %></h5>
-  <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
-  <p> 💲 Cost per day: <%= booking.cost_per_day %></p>
-  <% if policy(booking).destroy? %>
-      <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
-  <% end %>
-</div>
-</div>
-  <% end %>
+        <div class="card-sphere-infos">
+          <h5><%= booking.sphere.title %></h5>
+          <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
+          <p> 💲 Cost per day: <%= booking.cost_per_day %></p>
+          <% if policy(booking).destroy? %>
+          <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
 
-</div>
+    </div>
 
-</div>
+  </div>
 </div>
 
 

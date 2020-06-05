@@ -6,6 +6,10 @@
   width: 50%;
 }
 
+.mapboxgl-canvas {
+  width: 375px !important;
+}
+
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
