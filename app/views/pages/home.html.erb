@@ -3,41 +3,44 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-  <div class="home-content text-center">
-    <h1>LOGO</h1>
-    <h1>Be productive today.</h1>
-    <p>Find the workplace of your dreams</p>
+        <div class="home-content text-center">
 
-    <div class="search-form-control form-group">
+          <div class="box">
+            <%= image_tag "illustration.jpg", class:"home-image" %>
 
-    <%= form_tag spheres_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control string required",
-      placeholder: "Enter your city"
-      %>
-      <%= submit_tag "Search", class: "btn-searchbar btn-flat" %>
-    <% end %>
+            <h1>BALCONIA</h1>
+            <h1>Be productive today.</h1>
+            <p>All the confort of your own home. Only better.</p>
 
+            <div class="form">
+              <%= simple_form_for :search, url: spheres_path, method: :get do |f| %>
+              <div class="search-form-control form-group">
+
+              <%= form_tag spheres_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control string required",
+                placeholder: "Enter your city"
+                %>
+                <%= submit_tag "Find your dream workplace now", class: "btn-searchbar" %>
+              <% end %>
+
+              </div>
+              <% end %>
+              <div class="container d-flex justify-content-center">
+              <button class="box button"><%= link_to "Offer your sphere",  new_sphere_path %></button>
+
+        <!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(bannerspheres.jpg);">
+          <div class="container d-flex justify-content-center">
+
+            <button class="box button"><%= link_to "Offer your sphere",  new_sphere_path %></button>
+
+          </div>
+        </div> -->
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(bannerspheres.jpg);">
-  <div class="container d-flex justify-content-center">
-
-    <button class="btn a"><%= link_to "Offer your sphere",  new_sphere_path %></button>
-
-  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-

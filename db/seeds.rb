@@ -16,13 +16,13 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 user = User.create(email: "inmeallie@gmail.com", password: "123456")
 
-Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", price: 10, user_id: user.id)
-Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", price: 10, user_id: user.id)
-Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", price: 10, user_id: user.id)
-Sphere.create!(title: "City Garden in London", address: "London, UK", price: 10, user_id: user.id)
-Sphere.create!(title: "Warm fireplace", address: "Hamburg, Germany", price: 15, user_id: user.id)
-Sphere.create!(title: "Fowery, quiet workplace", address: "Munich, Germany", price: 9, user_id: user.id)
-Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", address: "Prenzlauer Berg, Berlin", price: 17, user_id: user.id)
-Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", price: 15, user_id: user.id)
+Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", price: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true)
+Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", price: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", price: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "City Garden in London", address: "London, UK", price: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "Warm fireplace", address: "Hamburg", price: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "Fowery, quiet workplace", address: "Munich", price: 9, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", address: "Prenzlauer Berg, Berlin", price: 17, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", price: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: true)
 
 puts "Finished!"
