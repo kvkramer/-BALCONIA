@@ -1,10 +1,13 @@
+<div class="page-container">
 <div class="container mt-4">
   <div class="edit-banner"> your apartments </div>
 
   <% @spheres.each do |sphere|  %>
     <div class="card-sphere-show-contact">
-        <% if sphere.photo.attached? %>
-          <%= cl_image_tag sphere.photo.key, crop: :fill %>
+        <% if sphere.photos.attached? %>
+          <% @sphere.photos.each do |photo| %>
+          <%= cl_image_tag sphere.photos.key, crop: :fill %>
+          <% end %>
         <% else %>
           <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
         <% end %>
@@ -40,5 +43,7 @@
       <p><i class="fas fa-heart", color: yellow></i> share your thoughs! </p>
     </div>
 </div>
+</div>
+
 
 

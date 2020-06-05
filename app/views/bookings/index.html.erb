@@ -18,7 +18,9 @@
   <h5><%= booking.sphere.title %></h5>
   <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
   <p> 💲 Price: <%= booking.price %></p>
-  <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
+  <% if policy(booking).destroy? %>
+      <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
+  <% end %>
 </div>
 </div>
   <% end %>
