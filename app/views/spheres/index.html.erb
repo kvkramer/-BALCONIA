@@ -65,22 +65,23 @@
 
 
 <div id="list_view" class="col-12 hidden">
-  <% @spheres.each do |sphere| %>
-    <div class="card-sphere">
 
-      <% if sphere.photo.attached? %>
-      <%= cl_image_tag sphere.photo.key, crop: :fill %>
-      <% else %>
-      <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-      <% end %>
+        <% @spheres.each do |sphere| %>
+          <div class="card-sphere">
 
-      <div class="card-sphere-infos">
-        <%= link_to sphere.title, sphere_path(sphere) %>
-        <p>Living in <%= sphere.address %></p>
-        <p>Cost per day: <%= sphere.price %>€</p>
-      </div>
-    </div>
-  <% end %>
-  <button id="map_button" class="btn-yellow flex-item">Map View</button>
+            <% if sphere.photos.attached? %>
+            <%= cl_image_tag sphere.photos.key, crop: :fill %>
+            <% else %>
+            <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+            <% end %>
+
+            <div class="card-sphere-infos">
+              <%= link_to sphere.title, sphere_path(sphere) %>
+              <p>Living in <%= sphere.address %></p>
+              <p>Cost per day: <%= sphere.price %>€</p>
+            </div>
+          </div>
+        <% end %>
+        <button id="map_button" class="btn-yellow flex-item">Map View</button>
 </div>
 
