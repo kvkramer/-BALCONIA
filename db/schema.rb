@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+d# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_110229) do
+ActiveRecord::Schema.define(version: 2020_06_05_122658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_110229) do
     t.string "status"
     t.bigint "user_id", null: false
     t.bigint "sphere_id", null: false
-    t.integer "price"
+    t.integer "cost_per_day"
     t.index ["sphere_id"], name: "index_bookings_on_sphere_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
