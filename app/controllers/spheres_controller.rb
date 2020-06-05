@@ -1,6 +1,13 @@
 class SpheresController < ApplicationController
   before_action :set_sphere, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:show, :index, :list]
+
+  # Uncomment when you *really understand* Pundit!
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # def user_not_authorized
+  #   flash[:alert] = "You are not authorized to perform this action."
+  #   redirect_to(root_path)
+  # end
 
   def index
     # City search
@@ -10,31 +17,36 @@ class SpheresController < ApplicationController
       @spheres = policy_scope(Sphere).all
     end
 
-    # Map
-    @spheres.geocoded
-
     # # Filtering options
     # params.require(:search).permit(:balcony, :sunny, :quiet, :garden)
     # choices = params["search"].select { |key, value| value != "" }
 
     # price filtering
-    if params[:price] == 'below 10'
-      @spheres = policy_scope(Sphere).where("price < 20")
-    elsif params[:price] == 'below 5'
-      @spheres = policy_scope(Sphere).where("price < 10")
-    elsif params[:price] == 'free'
-      @spheres = policy_scope(Sphere).where("price = 0")
-    else
-      @spheres = policy_scope(Sphere).all
-    end
+    # if params[:price] == 'below 10'
+    #   @spheres = policy_scope(Sphere).where("price < 20")
+    # elsif params[:price] == 'below 5'
+    #   @spheres = policy_scope(Sphere).where("price < 10")
+    # elsif params[:price] == 'free'
+    #   @spheres = policy_scope(Sphere).where("price = 0")
+    # else
+    #   @spheres = policy_scope(Sphere).all
+    # end
 
-    @markers = @spheres.map do |sphere|
+    @markers = @spheres.geocoded.map do |sphere|
       {
         lat: sphere.latitude,
         lng: sphere.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere }),
-        image_url: helpers.asset_url('spheres/1.jpg')
+        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
       }
+    end
+  end
+
+  def list
+    authorize @sphere
+    if params[:query].present?
+      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
+    else
+      @spheres = policy_scope(Sphere).all
     end
 
   end

@@ -1,3 +1,4 @@
+<div class="page-container">
 <div id="background-homepage">
   <div class="container">
     <div class="row">
@@ -7,9 +8,7 @@
     <h1>Be productive today.</h1>
     <p>Find the workplace of your dreams</p>
 
-    <div class="form">
-<%= simple_form_for :search, url: spheres_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
+    <div class="search-form-control form-group">
 
     <%= form_tag spheres_path, method: :get do %>
     <%= text_field_tag :query,
@@ -21,7 +20,7 @@
     <% end %>
 
   </div>
-<% end %>
+
 
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url(bannerspheres.jpg);">
@@ -34,10 +33,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 
-  </div>
-</div>
-</div>
 
 
 
