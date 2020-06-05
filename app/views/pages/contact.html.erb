@@ -5,8 +5,8 @@
   <% @spheres.each do |sphere|  %>
     <div class="card-sphere-show-contact">
         <% if sphere.photos.attached? %>
-          <% @sphere.photos.each do |photo| %>
-          <%= cl_image_tag sphere.photos.key, crop: :fill %>
+          <% sphere.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, alt: "pictures of the apartment" %>
           <% end %>
         <% else %>
           <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
