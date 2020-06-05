@@ -1,6 +1,6 @@
 class SpheresController < ApplicationController
   before_action :set_sphere, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:show, :index, :list]
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -16,11 +16,12 @@ class SpheresController < ApplicationController
       @spheres = @spheres.where('address ILIKE ?', "%#{params[:query]}%")
     end
 
-    # Balcony seach
+    # Options search
     if params[:search].present?
 
       if params[:search][:balcony] == "1"
-        @spheres = @spheres.where(balcony: true)
+        @spheres = @spheres.or(Sphere.where(balcony:true))
+        @spheres = @spheres.or(Sphere.where(sunny:true))
       end
       if params[:search][:sunny] == "1"
         @spheres = @spheres.where(sunny: true)
@@ -48,6 +49,19 @@ class SpheresController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
       }
     end
+<<<<<<< HEAD
+=======
+  end
+
+  def list
+    authorize @sphere
+    if params[:query].present?
+      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
+    else
+      @spheres = policy_scope(Sphere).all
+    end
+
+>>>>>>> 0c4aaf7127ca946b068dcc4893cfb9346391f23b
   end
 
   def show
