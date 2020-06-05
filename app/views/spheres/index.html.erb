@@ -25,8 +25,8 @@
         <% @spheres.each do |sphere| %>
           <div class="card-sphere">
 
-            <% if sphere.photo.attached? %>
-            <%= cl_image_tag sphere.photo.key, crop: :fill %>
+            <% if sphere.photos.attached? %>
+            <%= cl_image_tag sphere.photos.key, crop: :fill %>
             <% else %>
             <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
             <% end %>
