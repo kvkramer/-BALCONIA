@@ -41,7 +41,6 @@ class SpheresController < ApplicationController
       }
     end
 
-    console
   end
 
   def show
