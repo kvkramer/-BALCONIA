@@ -35,11 +35,11 @@ before_action :authenticate_user!
   def create
     set_sphere
     @user = current_user
-    @price = @sphere.price
+    @cost_per_day = @sphere.cost_per_day
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.sphere = @sphere
-    @booking.price = @price
+    @booking.cost_per_day = @cost_per_day
     authorize @booking
     if @booking.save
       redirect_to bookings_path, notice: 'Added booking.'
@@ -64,7 +64,7 @@ before_action :authenticate_user!
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :booking_price, :user_id, :sphere_id, :starttime, :endtime, :status)
+    params.require(:booking).permit(:date, :booking_cost_per_day, :user_id, :sphere_id, :starttime, :endtime, :status)
   end
 
   def skip_pundit?
