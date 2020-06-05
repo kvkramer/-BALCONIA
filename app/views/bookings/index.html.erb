@@ -8,11 +8,15 @@
 
       <div class="card-sphere">
 
-        <% if booking.sphere.photo.attached? %>
-        <%= cl_image_tag booking.sphere.photo.key, crop: :fill %>
-        <% else %>
-        <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-        <% end %>
+
+  <% if @sphere.photos.attached? %>
+    <% @sphere.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+    <% end %>
+  <% else %>
+    <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+  <% end %>
+
 
         <div class="card-sphere-infos">
           <h5><%= booking.sphere.title %></h5>
