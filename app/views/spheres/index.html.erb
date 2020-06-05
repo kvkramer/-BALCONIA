@@ -1,34 +1,80 @@
-<div id="map_view" class="col-12">
+<div id="map_view" class="col-12 map-container">
   <div id="map"
   style="width: 100%; height: 700px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-    <button id="list_button" class="btn-yellow flex-item">List View</button>
+  <button id="list_button" class="btn-yellow flex-item">list view</button>
 </div>
 
-<%= form_for :search, method: :get do |f| %>
-  <%= f.check_box :balcony %>
-  <%= f.check_box :sunny %>
-  <%= f.check_box :quiet %>
-  <%= f.check_box :garden %>
-  <%= f.submit "filter" %>
-<% end %>
-
-<%= form_tag spheres_path, method: :get do %>
-  <%= select_tag(:price, options_for_select(["below 10", "below 5", "free"], selected: params[:price]), :include_blank => "Price") %>
-  <%= submit_tag "Filter!", class: "btn btn-flat" %>
+<div class="map-filters">
+  <div class="map-filters-toggle">
+    <i class="fas fa-sliders-h"></i>
+  </div>
+  <%= simple_form_for :search, method: :get do |f| %>
+    <div>
+      <%= f.check_box :barbecue, { checked: params[:search].present? && params[:search][:barbecue] ? true : false }, true, false %>
+      <%= f.label :barbecue %>
+    </div>
+    <div>
+      <%= f.check_box :balcony, { checked: params[:search].present? && params[:search][:balcony] ? true : false }, true, false %>
+      <%= f.label :balcony %>
+    </div>
+    <div>
+      <%= f.check_box :sunny, { checked: params[:search].present? && params[:search][:sunny] ? true : false }, true, false %>
+      <%= f.label :sunny %>
+    </div>
+    <div>
+      <%= f.check_box :quiet, { checked: params[:search].present? && params[:search][:quiet] ? true : false }, true, false %>
+      <%= f.label :quiet %>
+    </div>
+    <div>
+      <%= f.check_box :garden, { checked: params[:search].present? && params[:search][:garden] ? true : false }, true, false %>
+      <%= f.label :garden %>
+    </div>
+    <div>
+      <%= f.check_box :terrace, { checked: params[:search].present? && params[:search][:terrace] ? true : false }, true, false %>
+      <%= f.label :terrace %>
+    </div>
+    <div>
+      <%= f.check_box :plants, { checked: params[:search].present? && params[:search][:plants] ? true : false }, true, false %>
+      <%= f.label :plants %>
+    </div>
+    <div>
+      <%= f.check_box :spacious_desk, { checked: params[:search].present? && params[:search][:spacious_desk] ? true : false }, true, false %>
+      <%= f.label :spacious_desk %>
+    </div>
+    <div>
+      <%= f.check_box :highspeed_wifi, { checked: params[:search].present? && params[:search][:highspeed_wifi] ? true : false }, true, false %>
+      <%= f.label :highspeed_wifi %>
+    </div>
+    <div>
+      <%= f.check_box :cozy, { checked: params[:search].present? && params[:search][:cozy] ? true : false }, true, false %>
+      <%= f.label :cozy %>
+    </div>
+    <%= f.submit "filter" %>
   <% end %>
+
+  <%= form_tag spheres_path, method: :get do %>
+    <%= select_tag(:cost_per_day, options_for_select(["below 10", "below 5", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
+    <%= submit_tag "Filter!", class: "btn btn-flat" %>
+  <% end %>
+</div>
+
+<div class="overlay"></div>
 
 
 <div id="list_view" class="col-12 hidden">
+
         <% @spheres.each do |sphere| %>
           <div class="card-sphere">
 
-            <% if sphere.photo.attached? %>
-            <%= cl_image_tag sphere.photo.key, crop: :fill %>
+            <% if sphere.photos.attached? %>
+              <% sphere.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, alt: "pictures of the apartment" %>
+              <% end %>
             <% else %>
-            <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
+              <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
             <% end %>
 
             <div class="card-sphere-infos">
@@ -38,6 +84,6 @@
             </div>
           </div>
         <% end %>
-        <button id="map_button" class="btn-yellow flex-item">Map View</button>
-      </div>
+        <button id="map_button" class="btn-yellow flex-item">map view</button>
+</div>
 
