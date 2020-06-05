@@ -1,7 +1,7 @@
 <div class="container mt-4">
 
 <div class="map-popup">
-  <% if sphere.photo.attached? %>
+  <% if sphere.photos.attached? %>
     <%= cl_image_tag sphere.photo.key, crop: :fill %>
   <% else %>
     <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
