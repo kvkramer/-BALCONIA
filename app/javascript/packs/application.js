@@ -28,10 +28,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import '../plugins/list_page_loader'
+
 import '../plugins/map_filter'
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
-
 

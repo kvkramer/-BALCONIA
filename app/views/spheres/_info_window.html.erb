@@ -6,7 +6,6 @@
     <% sphere.photos.each do |photo| %>
       <%= cl_image_tag photo.key, alt: "pictures of the apartment" %>
     <% end %>
-
   <% else %>
     <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
   <% end %>

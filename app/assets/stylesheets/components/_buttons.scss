@@ -1,6 +1,6 @@
 .btn-yellow {
     border: none;
-    opacity: 0.5;
+    opacity: 0.7;
     background-color: #F7D167;
     color: white;
     padding: 8px 25px;
@@ -9,13 +9,18 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
     a {
       color: white;
+      text-decoration: none;
+      border: none;
     }
-    text-decoration: none;
+    input {
+      border: none;
+    }
   }
 
-  //.btn-yellow:active {
-    //text-decoration: none;
-  //}
+  .btn-yellow:active {
+    text-decoration: none;
+    border: none;
+  }
 
   .btn-yellow:hover {
     background-color: #F7D167;
@@ -28,8 +33,9 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
     a {
       color: white;
+      text-decoration: none;
+      border: none;
     }
-    text-decoration: none;
   }
 
   .btn btn-light {
