@@ -1,14 +1,25 @@
 <div class="container mt-4">
 
 <div class="map-popup">
-  <% if sphere.photos.attached? %>
-
-    <% sphere.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, alt: "pictures of the apartment" %>
-    <% end %>
-  <% else %>
-    <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-  <% end %>
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% if sphere.photos.attached? %>
+              <% sphere.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%='active' if index == 0 %>">
+                  <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
 
   <div class="map-infos">
   <%= link_to sphere.title, sphere_path(sphere) %>

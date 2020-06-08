@@ -1,24 +1,35 @@
 <div class="page-container">
 <div class="container mt-4">
-  <div class="edit-banner"> your apartments </div>
+  <div class="edit-banner"> your spheres </div>
 
   <% @spheres.each do |sphere|  %>
     <div class="card-sphere-show-contact">
-        <% if sphere.photos.attached? %>
-          <% sphere.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, alt: "pictures of the apartment" %>
-          <% end %>
-        <% else %>
-          <%= image_tag "spheres/#{rand(1..6)}.jpg" %>
-        <% end %>
-
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% if sphere.photos.attached? %>
+              <% sphere.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%='active' if index == 0 %>">
+                  <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
         <div class="card-sphere-show-infos">
 
             <p> address: <%= sphere.address.downcase  %></p>
             <p> description: <%= sphere.description %></p>
             <p> contact host: <%= sphere.user.email %></p>
             <p> read reviews: </p>
-            <p class="card-sphere-show-pricing"> cost per hour: <%= sphere.cost_per_day %>€</p>
+            <p class="card-sphere-show-pricing"> cost per day: <%= sphere.cost_per_day %>€</p>
           </div>
         </div>
 

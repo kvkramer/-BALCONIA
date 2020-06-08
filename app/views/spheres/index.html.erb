@@ -52,13 +52,14 @@
       <%= f.check_box :cozy, { checked: params[:search].present? && params[:search][:cozy] ? true : false }, true, false %>
       <%= f.label :cozy %>
     </div>
+    <div>
+      <%= select_tag(:cost_per_day, options_for_select(["below 20", "below 10", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
+    </div>
     <%= f.submit "filter" %>
   <% end %>
   <br>
-  <%= form_tag spheres_path, method: :get do %>
-    <%= select_tag(:cost_per_day, options_for_select(["below 10", "below 5", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
-    <%= submit_tag "filter!", class: "btn btn-flat" %>
-  <% end %>
+
+
 
 </div>
 
@@ -70,7 +71,7 @@
         <% @spheres.each do |sphere| %>
           <div class="card-sphere">
 
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% if sphere.photos.attached? %>
               <% sphere.photos.each_with_index do |photo, index| %>
