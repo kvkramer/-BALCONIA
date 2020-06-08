@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 puts "Deleting old ones"
 Booking.delete_all
 Sphere.delete_all
@@ -16,13 +18,29 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 user = User.create(email: "inmeallie@gmail.com", password: "123456")
 
-Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", cost_per_day: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true, photos: )
-Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "City Garden in London", address: "London, UK", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "Warm fireplace", address: "Hamburg", cost_per_day: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "Fowery, quiet workplace", address: "Munich", cost_per_day: 9, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", address: "Prenzlauer Berg, Berlin", cost_per_day: 17, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
-Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", cost_per_day: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: true)
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
+sphere = Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", cost_per_day: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true)
+sphere.photos.attach(io: file, filename: 'spheres/1.png', content_type: 'image/png')
+sphere.save
+
+file = URI.open('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
+sphere = Sphere.create!(title: "Cozy Living Room", address: "Munich, Germany", cost_per_day: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true)
+sphere.photos.attach(io: file, filename: 'spheres/2.png', content_type: 'image/png')
+sphere.save
+
+# Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "City Garden in London", address: "London, UK", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "Warm fireplace", address: "Hamburg, Germany", cost_per_day: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "Fowery, quiet workplace", address: "Munich", cost_per_day: 9, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "Quiet penthouse with terrace overlooking TV tower", address: "Prenzlauer Berg, Berlin", cost_per_day: 17, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
+# Sphere.create!(title: "Loft with large workplace for team up to 12", address: "Charlottenburg, Berlin", cost_per_day: 15, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: true)
+
+# spheres = Sphere.all
+# spheres.each do |sphere|
+#   sphere.photos.attach(io: file, filename: '1.png', content_type: 'image/png')
+#   sphere.photos.attach(io: file, filename: '2.png', content_type: 'image/png')
+# end
 
 puts "Finished!"
