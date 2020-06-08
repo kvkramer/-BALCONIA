@@ -88,7 +88,7 @@ class SpheresController < ApplicationController
     @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to root_path, notice: 'This was deleted successfully.'
+    redirect_to root_path, notice: 'Deleted successfully.'
   end
 
   private
