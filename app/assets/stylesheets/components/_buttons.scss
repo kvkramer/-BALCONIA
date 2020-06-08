@@ -83,3 +83,8 @@ margin: 0px 0px 2px;
 .mapboxgl-ctrl-group:not(:empty) {
   box-shadow: none !important;
 }
+
+.mapboxgl-ctrl button:not(:disabled):hover {
+  background-color: $yellow !important;
+  box-shadow: none;
+}
