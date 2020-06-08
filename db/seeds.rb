@@ -16,7 +16,7 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 user = User.create(email: "inmeallie@gmail.com", password: "123456")
 
-Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", cost_per_day: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true, photos: )
+Sphere.create!(title: "Cozy Living Room", address: "Berlin, Germany", cost_per_day: 10, user_id: user.id, barbecue: true, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: false, cozy: true)
 Sphere.create!(title: "City Garden in X-berg", address: "Kreuzberg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
 Sphere.create!(title: "Penthouse overlooking TV tower", address: "Prenzlauer Berg, Germany", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
 Sphere.create!(title: "City Garden in London", address: "London, UK", cost_per_day: 10, user_id: user.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: false, sunny: false, spacious_desk: false, highspeed_wifi: false, pet_friendly: false, cozy: false)
