@@ -23,7 +23,6 @@
         </div>
 
         <div class="card-sphere-show">
-
           <div class="card-sphere-show-infos">
             <div>
               <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
@@ -86,28 +85,40 @@
                 <%= link_to "book",  new_sphere_booking_path(@sphere), class: "btn-yellow flex-item" %>
                 <% end %>
             </div>
-          </div>
-              <div>
-          </div>
+          </div>   
         </div>
-
-        <div class="flex-container">
+        
           <br>
 
-        <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
-          <div class="card-body" style="text-align: left;">
-            <h5 class="card-title">reviews</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+
+          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
+            <div class="card-body" style="text-align: left;">
+              <h5 class="card-title">reviews</h5>
+              <p class="card-text"></p>
+            </div>
+            <% if @bookings %>
+              <ul class="list-group list-group-flush">
+                <% @bookings.each do |booking| %>
+                  <% if booking.review %>
+                    <li class="list-group-item"><%= booking.review.description %></li>
+                  <%else%>
+                    <li class="list-group-item"><p>no reviews yet.</p></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <%else%>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">no reviews yet.</li>
+              </ul>
+            <% end %>
+
+            <div class="card-body">
+              <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
-          </div>
-        </div>
+
          <br>
 
          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
@@ -117,6 +128,7 @@
             <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a>
          </div>
          <br>
+      
     </div>
  </div>
 

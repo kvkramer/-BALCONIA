@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' } do
   resources :spheres, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :bookings, only: [:new, :create, :index]
+    resources :bookings, only: [:new, :create, :index] do
+      resources :reviews, only: [:new, :create]
+    end
   end
 
     # get 'index', to: 'meetings#index'
