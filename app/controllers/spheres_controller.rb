@@ -11,26 +11,24 @@ class SpheresController < ApplicationController
 
   def index
     # City search
-    @spheres = policy_scope(Sphere)
+
     if params[:query].present?
-      @spheres = Sphere.where('address ILIKE ?', "%#{params[:query]}%")
+      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
     elsif params[:search].present?
       search_params = params[:search].select { |key, value| value == 'true'}
       search_params.permit!
-      @spheres = Sphere.where(search_params)
+      @spheres = policy_scope(Sphere).where(search_params)
     else
-      @spheres = Sphere.all
+      @spheres = policy_scope(Sphere).all
     end
 
-    # price filtering
+    # # price filtering
     if params[:cost_per_day] == 'below 20'
       @spheres = policy_scope(Sphere).where("cost_per_day < 20")
     elsif params[:cost_per_day] == 'below 10'
       @spheres = policy_scope(Sphere).where("cost_per_day < 10")
     elsif params[:cost_per_day] == 'free'
       @spheres = policy_scope(Sphere).where("cost_per_day = 0")
-    else
-      @spheres = policy_scope(Sphere).all
     end
 
     @markers = @spheres.geocoded.map do |sphere|
@@ -91,7 +89,7 @@ class SpheresController < ApplicationController
     @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to root_path, notice: 'This was deleted successfully.'
+    redirect_to root_path, notice: 'Deleted successfully.'
   end
 
   private

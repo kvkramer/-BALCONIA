@@ -25,6 +25,20 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
+    // document.getElementById('locate-position').addEventListener('click', () => {
+    //   map.locate({setView: true, maxZoom: 15});
+    // });
+
+
+const geolocate = new mapboxgl.GeolocateControl({
+  positionOptions: {
+    enableHighAccuracy: true
+  },
+    trackUserLocation: true,
+    fitBoundsOptions: {maxZoom:12}
+});
+
+
 
 const initMapbox = () => {
   if (document.getElementById('map')) {
@@ -33,6 +47,7 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    map.addControl(geolocate);
   }
 };
 

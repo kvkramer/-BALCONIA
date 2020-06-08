@@ -75,7 +75,7 @@
         <% @spheres.each do |sphere| %>
           <div class="card-sphere">
 
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <% if sphere.photos.attached? %>
               <% sphere.photos.each_with_index do |photo, index| %>
@@ -97,7 +97,7 @@
 
             <div class="card-sphere-infos">
               <%= link_to sphere.title, sphere_path(sphere) %>
-              <p>Living in <%= sphere.address %></p>
+              <p>Located at <%= sphere.address %></p>
               <p>Cost per day: <%= sphere.cost_per_day %>€</p>
             </div>
           </div>

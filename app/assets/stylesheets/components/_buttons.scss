@@ -50,14 +50,41 @@ margin: 0px 0px 2px;
 
 #list_button {
   position: sticky;
-  bottom: 20%;
+  bottom: 90%;
   margin-left: 140px;
   opacity: 1;
 }
 
 #map_button {
-  position: sticky;
-  bottom: 20%;
+  position: fixed;
+  bottom: 90%;
   margin-left: 110px;
   opacity: 1;
+}
+
+#vincinity_button {
+  position: fixed;
+  top: 10%;
+  right: 30%;
+  opacity: 1;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  margin: 28px 10px 0 0 !important;
+  width: 40px;
+  height: 40px;
+  background-color: $yellow;
+}
+
+.mapboxgl-ctrl-icon {
+    position: absolute;
+    bottom: -0px;
+}
+.mapboxgl-ctrl-group:not(:empty) {
+  box-shadow: none !important;
+}
+
+.mapboxgl-ctrl button:not(:disabled):hover {
+  background-color: $yellow !important;
+  box-shadow: none;
 }
