@@ -43,6 +43,7 @@ class SpheresController < ApplicationController
 
   def show
     authorize @sphere
+    @bookings = Booking.where(sphere: @sphere)
   end
 
   def new

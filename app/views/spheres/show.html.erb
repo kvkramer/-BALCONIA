@@ -22,8 +22,9 @@
           </a>
         </div>
 
-        <div class="card-sphere-show">
 
+
+        <div class="card-sphere-show">
           <div class="card-sphere-show-infos">
             <div>
               <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
@@ -74,49 +75,64 @@
                 <p> pet_friendly </p>
                 <% end %>
               </div>
+              <br>
+                <% if policy(@sphere).edit? %>
+                  <%= link_to "edit",  edit_sphere_path,  class: "btn-yellow flex-item" %>
+                <% end %>
+                <% if policy(@sphere).destroy? %>
+                <%= link_to "delete", sphere_path(@sphere), class: "btn-yellow flex-item", method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
+                <% end %>
+                <% if @sphere.user != current_user %>
+                <%= link_to "search", spheres_path,  class: "btn-yellow flex-item" %>
+                <%= link_to "book",  new_sphere_booking_path(@sphere), class: "btn-yellow flex-item" %>
+                <% end %>
             </div>
-          </div>
+          </div>   
         </div>
-<br>
-        <div class="flex-container">
-          <div>
-          <% if policy(@sphere).edit? %>
-            <%= link_to "edit",  edit_sphere_path,  class: "btn-yellow flex-item" %>
-          <% end %>
-          <% if policy(@sphere).destroy? %>
-           <%= link_to "delete", sphere_path(@sphere), class: "btn-yellow flex-item", method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
-          <% end %>
-          <% if @sphere.user != current_user %>
-           <%= link_to "search", spheres_path,  class: "btn-yellow flex-item" %>
-           <%= link_to "book",  new_sphere_booking_path(@sphere), class: "btn-yellow flex-item" %>
-          <% end %>
-          </div>
+        
           <br>
 
-        <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
-          <div class="card-body" style="text-align: left;">
-            <h5 class="card-title">reviews</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+
+          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
+            <div class="card-body" style="text-align: left;">
+              <h5 class="card-title">reviews</h5>
+              <p class="card-text"></p>
+            </div>
+            <% if @bookings %>
+              <ul class="list-group list-group-flush">
+                <% @bookings.each do |booking| %>
+                  <% if booking.review %>
+                    <li class="list-group-item"><%= booking.review.description %></li>
+                  <%else%>
+                    <li class="list-group-item"><p>no reviews yet.</p></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <%else%>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">no reviews yet.</li>
+              </ul>
+            <% end %>
+
+            <div class="card-body">
+              <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
-          </div>
-        </div>
+
          <br>
 
          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
-            <h5>Meet your host:</h5><br>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+            <h5>meet your host:</h5><br>
+            <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+
             <br>
             <!-- <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a> -->
             <%= link_to 'contact', sphere_chatrooms_path(@sphere), method: :post, class: 'btn btn-light' %>
          </div>
          <br>
+      
     </div>
  </div>
 

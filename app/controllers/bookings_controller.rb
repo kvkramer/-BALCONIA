@@ -5,6 +5,7 @@ before_action :authenticate_user!
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  skip_after_action :verify_authorized
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -21,9 +22,15 @@ before_action :authenticate_user!
     #@sphere.user = @user
     # Display all the bookings
 
-    @bookings = policy_scope(Booking).all
-    # @user_bookings = booking.where(user = current_user)
+    #@bookings = policy_scope(Booking).all
+    @user_bookings = policy_scope(Booking).where(user: current_user)
   end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+     @review = Review.new
+   end
 
   def new
     @booking = Booking.new
@@ -41,7 +48,7 @@ before_action :authenticate_user!
     @booking.cost_per_day = @cost_per_day
     authorize @booking
     if @booking.save
-      redirect_to bookings_path, notice: 'Added booking.'
+      redirect_to bookings_path, notice: 'added booking'
     else
       render :new
     end
@@ -53,8 +60,16 @@ before_action :authenticate_user!
     @booking.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to bookings_path, notice: 'This booking was cancelled.'
+    redirect_to bookings_path, notice: 'this booking was cancelled'
   end
+
+
+
+  #def reviews
+    #@booking = Booking.find(params[:id])
+    #@review.booking = @booking
+  #end
+
 
   private
 

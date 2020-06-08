@@ -34,6 +34,8 @@ import { initPageLoader } from '../plugins/list_page_loader';
 
 import { initFilter } from '../plugins/map_filter';
 
+import "../plugins/flatpickr"
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initPageLoader();
