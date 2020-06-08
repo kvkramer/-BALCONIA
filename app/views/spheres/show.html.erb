@@ -110,10 +110,11 @@
          <br>
 
          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
-            <h5>meet your host:</h5><br>
+            <h5>Meet your host:</h5><br>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-sphere-user avatar-bordered" alt="avatar of user" />
             <br>
-            <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a>
+            <!-- <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a> -->
+            <%= link_to 'contact', sphere_chatrooms_path(@sphere), method: :post, class: 'btn btn-light' %>
          </div>
          <br>
     </div>

@@ -18,7 +18,6 @@ puts "Creating some Spheres..."
 user = User.create(email: "katha@icloud.com", password: "123456")
 user = User.create(email: "inmeallie@gmail.com", password: "123456")
 
-
 sphere = Sphere.create!(title: "cottage by the lake", address: "Wannsee, Berlin", cost_per_day: 21, user_id: user.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
 file1 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591445953/mwrw2gx894bnq2hctfivfewndsvu.jpg')
 sphere.photos.attach(io: file1, filename: 'spheres/1.png', content_type: 'image/png')
