@@ -10,11 +10,13 @@ Rails.application.routes.draw do
 
   # devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' } do
   resources :spheres, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :conversations, only: [:create]
-    resources :bookings, only: [:new, :create, :index]
-
+    resources :chatrooms, only: [:create]
+    resources :bookings, only: [:new, :create, :index] do
+      resources :reviews, only: [:new, :create]
+    end
   end
-  resources :conversations, only: [:index, :show,] do
+
+  resources :chatrooms, only: [:index, :show,] do
   resources :messages, only: [:create]
   end
     # get 'index', to: 'meetings#index'

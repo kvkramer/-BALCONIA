@@ -3,7 +3,7 @@
     <div class="edit-banner"> all your bookings </div>
 
     <div class="spheres-container">
-      <% @bookings.each do |booking| %>
+      <% @user_bookings.each do |booking| %>
 
 
       <div class="card-sphere">
@@ -33,8 +33,10 @@
           <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
           <p> 💲 cost per day: <%= booking.cost_per_day %></p>
           <% if policy(booking).destroy? %>
-          <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
+           <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
           <% end %>
+          
+          <p><%= link_to "add review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%><p>
         </div>
       </div>
       <% end %>
