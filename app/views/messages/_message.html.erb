@@ -1,0 +1,13 @@
+<div class="message-container" id="message-<%= message.id %>">
+  <i class="author">
+    <span>
+      <% if message.user == current_user %>
+        You
+      <% else %>
+        <%= message.user.name %>
+      <% end %>
+   </span>
+    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><%= message.content %></p>
+</div>
