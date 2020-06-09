@@ -1,0 +1,20 @@
+<!-- user/show.html.erb -->
+<img src="<%= @user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+
+<% if @user == current_user %>
+  <h3>You</h3>
+<% else %>
+  <h3><%= @user.name %></h3>
+<% end %>
+<%#= render @user %>
+<!-- follow -->
+<%= render 'user', user: @user %>
+
+<br>
+<p>all your messages with this user:</p>
+
+<%= render @messages %>
+
+<%# @messages.each do |message| %>
+  <%#= message %>
+<%# end %>

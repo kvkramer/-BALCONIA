@@ -22,4 +22,11 @@ Rails.application.routes.draw do
     # get 'index', to: 'meetings#index'
 
   resources :bookings, only: [:index, :destroy]
+
+  resources :users, only: [:show] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 end
