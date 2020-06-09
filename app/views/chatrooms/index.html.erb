@@ -1,10 +1,10 @@
-<h2>all your conversations</h2>
+<div class="edit-banner"> inbox </div>
 <p>Sent Messages</p>
 <% @user_chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
     <div class="chat-container card-message">
-      <%= image_tag(chatroom.user.image, width: "100")  %>
-      <h2><%= chatroom.sphere.title %></h2>
+      <%= image_tag(chatroom.user.image, class: "avatar")  %>
+      <h3><%= chatroom.sphere.title %></h3>
       <p><%= chatroom.user.email %></p>
     </div>
   <% end %>
