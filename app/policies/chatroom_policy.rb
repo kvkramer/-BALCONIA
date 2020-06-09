@@ -8,6 +8,6 @@ class ChatroomPolicy < ApplicationPolicy
     return true
   end
   def show?
-    record.user == user
+    return true
   end
 end

@@ -24,10 +24,9 @@
           </a>
         </div>
         <div class="card-sphere-show-infos">
-            <p> title: <%= sphere.title.downcase  %></p>
-            <p> address: <%= sphere.address.downcase  %></p>
+            <strong><p><%= sphere.title.downcase  %></p></strong>
+            <p><%= sphere.address.downcase  %></p>
             <p> description: <%= sphere.description %></p>
-            <p> contact host: <%= sphere.user.email %></p>
             <p> read reviews: </p>
             <p class="card-sphere-show-pricing"> cost per day: <%= sphere.cost_per_day %>€</p>
           </div>
@@ -59,7 +58,7 @@
   </div>
 
     <div class="footer-links">
-      <div class="edit-banner"> contact us </div>
+      <div class="btn-searchbar"> contact us </div>
       <a href="#"><i class="fab fa-github"></i></a> -
       <a href="#"><i class="fab fa-instagram"></i></a> -
       <a href="#"><i class="fab fa-facebook"></i></a> -

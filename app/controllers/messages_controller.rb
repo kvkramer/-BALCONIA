@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @sphere = @chatroom.sphere
     @message.user = current_user
-    
+
     @message.sphere = @sphere
     authorize @message
 
@@ -23,10 +23,9 @@ class MessagesController < ApplicationController
     end
   end
 
-private
+  private
 
-def message_params
-  params.require(:message).permit(:content)
-end
-
+  def message_params
+    params.require(:message).permit(:content)
+  end
 end
