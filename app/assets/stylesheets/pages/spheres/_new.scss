@@ -1,7 +1,7 @@
 
 
 #listing {
-    color: #fec92d;
+    color: $yellow;
     align-items: center;
     display: flex;
     margin: 30px;
@@ -14,17 +14,6 @@
 }
 
 
-.btn btn-light {
-  padding: 8px 25px;
-  border-radius: 4px;
-}
-
-#header-yellow {
-color: #fec92d;
-font-weight: medium;
-}
-
-
 #edit-form {
   color: black;
   font-family: 'Quicksand', sans-serif;
@@ -34,13 +23,3 @@ font-weight: medium;
 .form-control:not(:focus) {
   font-style:italic;
   }
-
-.avatar-large-barknb {
-  object-fit: cover;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  margin: -100px 1650px 150px 80px;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}

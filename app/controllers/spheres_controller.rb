@@ -81,10 +81,11 @@ class SpheresController < ApplicationController
   end
 
   def update
+
     authorize @sphere
 
     if @sphere.update(sphere_params)
-      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
+      redirect_to sphere_path(@sphere), notice: 'saved successfully'
     else
       render :edit
     end
@@ -99,7 +100,7 @@ class SpheresController < ApplicationController
     @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to root_path, notice: 'Deleted successfully.'
+    redirect_to root_path, notice: 'deleted successfully'
   end
 
   private
