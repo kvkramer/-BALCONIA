@@ -1,6 +1,11 @@
 class ChatroomsController < ApplicationController
   def index
     @user_chatrooms = policy_scope(Chatroom).where(user: current_user)
+    @spheres = Sphere.where(user: current_user)
+    @spheres_chats = []
+    @spheres.each do |spheres|
+      @spheres_chats << Chatroom.where(sphere_id: spheres)
+    end
   end
 
   def show

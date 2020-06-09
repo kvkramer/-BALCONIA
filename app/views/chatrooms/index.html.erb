@@ -1,5 +1,25 @@
-<h1>all your conversations</h1>
-<div class="spheres-container">
-    <% @user_chatrooms.each do |chatroom| %>
+<h2>all your conversations</h2>
+<p>Sent Messages</p>
+<% @user_chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
+    <div class="chat-container card-message">
+      <%= image_tag(chatroom.user.image, width: "100")  %>
+      <h2><%= chatroom.sphere.title %></h2>
+      <p><%= chatroom.user.email %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<p>Sphere Request</p>
+
+<% @spheres_chats.each do |chatroom| %>
+  <% if chatroom.length > 0 %>
+    <%= link_to chatroom_path(chatroom.first), class: "chatroom-link" do %>
+     <div class="chat-container card-message">
+        <%= image_tag(chatroom.first.user.image, width: "100")  %>
+        <h2><%= chatroom.first.sphere.title %></h2>
+        <p><%= chatroom.first.user.email %></p>
+      </div>
     <% end %>
-</div>
+  <% end %>
+<% end %>
