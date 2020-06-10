@@ -5,10 +5,26 @@
   background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
-  
+
   h2 {
-    font-size: 20px
+    font-size: 15px;
+    color: black;
+    padding: 10px;
   }
+}
+
+.card-message:hover {
+  opacity: 1;
+}
+
+.chat-container {
+  flex-grow: 1;
+  padding: 5px;
+}
+
+.chat-img {
+  border-radius: 50%;
+  display: flex;
 }
 
 .chatroom-link {
@@ -18,4 +34,5 @@
 .card-message p {
   margin: 0;
   line-height: 1.4;
+  padding: 5px;
 }
