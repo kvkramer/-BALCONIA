@@ -21,6 +21,7 @@ puts "Creating some Spheres..."
 user1 = User.create(name: 'Katha', email: "katha@icloud.com", password: "123456", image: "https://res.cloudinary.com/kathavk/image/upload/v1591628394/photography-of-a-guy-wearing-green-shirt-1222271_hmngp2.jpg")
 user2 = User.create(name: 'Meallie', email: "inmeallie@gmail.com", password: "123456", image: "https://res.cloudinary.com/kathavk/image/upload/v1591628395/women-s-white-and-black-button-up-collared-shirt-774909_bvscpc.jpg")
 
+
 sphere = Sphere.create!(title: "cottage by the lake", address: "Wannsee, Berlin", cost_per_day: 21, user_id: user1.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
 
 file1 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591445953/mwrw2gx894bnq2hctfivfewndsvu.jpg')
@@ -45,5 +46,20 @@ file6 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591304306/ud
 sphere.photos.attach(io: file6, filename: 'spheres/6.png', content_type: 'image/png')
 sphere.save
 
+
+
+sphere4 = Sphere.create!(title: "greenhouse atelier for artists", address: "Engelbecken, Berlin", cost_per_day: 10, user_id: user1, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
+
+sphere5 = Sphere.create!(title: "chill work spot in beer brewery in hip x-berg", address: "Oranienstrasse 37, Berlin", cost_per_day: 15, user_id: user2, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
+
+sphere6 = Sphere.create!(title: "quiet spot next to private pond", address: "Bruno-Bauer-Strasse 15, Berlin", cost_per_day: 15, user_id: user1, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
+
+sphere7 = Sphere.create!(title: "rooftop for offsite meetings for teams up to 12 ppl", address: "Greifswalderstrasse 212, Berlin", cost_per_day: 40, user_id: user2, barbecue: true, balcony: false, garden: true, terrace: true, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+
+sphere8 = Sphere.create!(title: "large terrace with highspeed wifi near Tempelhofer feld ", address: "Schillerpromenade 9, Berlin", cost_per_day: 15, user_id: user1, barbecue: false, balcony: false, garden: false, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: false)
+
+sphere9 = Sphere.create!(title: "house boat on the Spree", address: "Hauptstrasse 15, Berlin", cost_per_day: 30, user_id: user2, barbecue: false, balcony: false, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
+
+sphere10 = Sphere.create!(title: "home office with large desk and screen", address: "Am Friedrichshain 3, Berlin", cost_per_day: 9, user_id: user2, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
 
 puts "Finished!"
