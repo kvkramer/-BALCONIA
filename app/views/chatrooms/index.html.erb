@@ -3,11 +3,15 @@
 <% @user_chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
 
-    <div class="card-message">
-      <%= image_tag(chatroom.user.image, width: "100")  %>
+    <div class="chat-container card-message">
+      <%= image_tag(chatroom.user.image, width: "100", class: "avatar")  %>
       <h2><%= chatroom.sphere.title %></h2>
       <p><%= chatroom.user.name %></p>
+
+      <p>display here last message</p>
+
 <!--       <p><%#= chatroom.user.messages.last %></p> -->
+
     </div>
   <% end %>
 <% end %>
@@ -19,9 +23,10 @@
   <% if chatroom.length > 0 %>
     <%= link_to chatroom_path(chatroom.first), class: "chatroom-link" do %>
      <div class="chat-container card-message">
-        <%= image_tag(chatroom.first.user.image, width: "100")  %>
+        <%= image_tag(chatroom.first.user.image, width: "100", class: "avatar")  %>
         <h2><%= chatroom.first.sphere.title %></h2>
         <p><%= chatroom.first.user.name %></p>
+        <p>display here last message</p>
       </div>
     <% end %>
   <% end %>

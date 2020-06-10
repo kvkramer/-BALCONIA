@@ -1,5 +1,4 @@
 <div class="edit-banner"> your bookings </div>
-<div class="page-container">
 
     <div class="spheres-container">
       <% @user_bookings.each do |booking| %>
@@ -44,11 +43,11 @@
                 <% if policy(booking).destroy? %>
                   <%= link_to 'delete', booking_path(booking), method: :delete, data: { confirm: 'are you sure?' }, class: 'btn-light' %>
                 <% end %>
-              </div> 
+              </div>
 
         </div>
 
-             
+
 
       <% end %>
     </div>
