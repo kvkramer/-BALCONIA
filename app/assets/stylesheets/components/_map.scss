@@ -47,9 +47,8 @@
   object-fit: cover;
 }
 
-
 .map-infos {
-  padding: 16px;
+  padding-top: 10px;
 }
 
 .map-infos a{
@@ -60,7 +59,23 @@
 
 .map-filters-toggle{
   height: 40px;
+  width: 40px;
   background-color: $yellow !important;
+  padding: 0px;
 }
+
+.fa-sliders-h:before{
+  color: white;
+}
+
+.button-text {
+  color: white;
+  margin: 0;
+}
+
+.green-text{
+  color: $yellow;
+}
+
 
 

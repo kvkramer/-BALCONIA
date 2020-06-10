@@ -9,6 +9,20 @@ const buildMap = (mapElement) => {
   });
 };
 
+// var geojson = [
+//   {
+//     type: 'Feature',
+//     geometry: {
+//       type: 'Point',
+//     },
+//     properties: {
+//       'marker-color': '#3bb2d0',
+//       'marker-size': 'large',
+//       'marker-symbol': 'rocket'
+//     }
+//   },
+//   ];
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);

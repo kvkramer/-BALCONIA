@@ -75,16 +75,20 @@ margin: 0px 0px 2px;
 
 #list_button {
   position: sticky;
-  bottom: 90%;
+  bottom: 91.5%;
   margin-left: 140px;
   opacity: 1;
+  height: 40px;
+  width: 130px;
 }
 
 #map_button {
   position: fixed;
-  bottom: 90%;
+  bottom: 91.5%;
   margin-left: 110px;
   opacity: 1;
+  height: 40px;
+  width: 130px;
 }
 
 #vincinity_button {
@@ -104,6 +108,7 @@ margin: 0px 0px 2px;
 .mapboxgl-ctrl-icon {
     position: absolute;
     bottom: -0px;
+    color: white !important;
 }
 .mapboxgl-ctrl-group:not(:empty) {
   box-shadow: none !important;
