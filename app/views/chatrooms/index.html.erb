@@ -1,33 +1,47 @@
-<div class="edit-banner"> your conversations </div>
-<!-- <p>Sent Messages</p> -->
-<% @user_chatrooms.each do |chatroom| %>
-  <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
-
-    <div class="chat-container card-message">
-      <%= image_tag(chatroom.user.image, width: "100", class: "avatar")  %>
-      <h2><%= chatroom.sphere.title %></h2>
-      <p><%= chatroom.user.name %></p>
-
-      <p>display here last message</p>
-
-<!--       <p><%#= chatroom.user.messages.last %></p> -->
-
-    </div>
-  <% end %>
-<% end %>
-
-<!-- <p>Sphere Request</p> -->
+<div class="edit-banner">My conversations</div>
 
 
-<% @spheres_chats.each do |chatroom| %>
-  <% if chatroom.length > 0 %>
-    <%= link_to chatroom_path(chatroom.first), class: "chatroom-link" do %>
-     <div class="chat-container card-message">
-        <%= image_tag(chatroom.first.user.image, width: "100", class: "avatar")  %>
-        <h2><%= chatroom.first.sphere.title %></h2>
-        <p><%= chatroom.first.user.name %></p>
-        <p>display here last message</p>
-      </div>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+      My requests
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+      My spheres requests
+    </a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <!-- <p>Sent Messages</p> -->
+    <% @user_chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
+        <div class="card-message">
+          <%= image_tag(chatroom.user.image, width: "100", class: "avatar")  %>
+          <div class="card-message-details">
+            <h2><%= chatroom.sphere.title %></h2>
+            <p><%= chatroom.messages.last.content.truncate(180) %></p>
+            <p id="message-time"><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <% @spheres_chats.each do |chatroom| %>
+      <% if chatroom.length > 0 %>
+        <%= link_to chatroom_path(chatroom.first), class: "chatroom-link" do %>
+          <div class="card-message">
+            <%= image_tag(chatroom.first.user.image, width: "100", class: "avatar")  %>
+            <div class="card-message-details">
+              <h2><%= chatroom.last.sphere.title %></h2>
+              <p>TBD</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

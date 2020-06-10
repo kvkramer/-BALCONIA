@@ -1,15 +1,62 @@
+.nav-pills {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  .nav-item {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    border-radius: 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: #a3a3a3;
+    color: white;
+  }
+
+  .nav-link.active {
+    background-color: white;
+    color: black;
+  }
+}
+
 .card-message {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
 
-  h2 {
-    font-size: 15px;
-    color: black;
-    padding: 10px;
+  height: 68px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+
+  .card-message-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+
+    h2 {
+      font-size: 14px;
+      padding-bottom: 6px;
+      color: $gray;
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    p {
+      font-size: 10px;
+      color: $gray;
+      text-decoration: none;
+      display: inline;
+    }
   }
 }
 
@@ -35,4 +82,36 @@
   margin: 0;
   line-height: 1.4;
   padding: 5px;
+}
+
+.message_content {
+  margin-bottom: 0;
+}
+
+.message-container {
+  padding: 8px 16px;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.new_message {
+  display: flex;
+  position: absolute;
+  bottom: 60px;
+  background-color: #ebebeb;
+  padding: 16px;
+  width: 100%;
+
+  .form-group {
+    width: 75%;
+  }
+
+  input[type="submit"] {
+    display: block;
+    height: 37px;
+    width: 25%;
+  }
 }
