@@ -8,7 +8,7 @@ $font-family-sans-serif:  "Quicksand", sans-serif;
 $headings-font-family:    "Quicksand", sans-serif;
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 white;
+$body-bg:                 $yellow;
 $font-size-base: 1rem;
 
 // Colors
@@ -26,9 +26,6 @@ $border-radius-sm: 6px;
 
 // Override other variables below!
 
-$gray: #708090;
-$yellow:#F7D167;
-$orange: #E9B500
 
 //$body-font: "Quicksand", sans-serif;
 //$headers-font: 'Quicksand', sans-serif;
