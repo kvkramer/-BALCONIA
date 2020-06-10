@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
         authorize @review
         @review.booking = @booking
         if @review.save
-          redirect_to bookings_path
+          redirect_to sphere_path(@booking.sphere.id)
         else
           render "new"
         end

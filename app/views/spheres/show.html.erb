@@ -100,18 +100,32 @@
           </div>
         </div>
       </div>
-      
-    <br>
-      
-    <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
-      <div> <h4 class="card-title" style="margin: 10px 0px 0px 20px";> reviews </h4>
-            <% if @bookings %>
-              <ul class="list-group list-group-flush">
-                <% @bookings.each do |booking| %>
-                  <% if booking.review %>
-                    <li class="list-group-item"><%= "☀️" * booking.review.rating %><br><em>"<%= booking.review.description %>"</em></li>
+       
+          <br>
+
+
+
+
+          <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 0px 0px;">
+            
+            <div>
+                <h4 class="card-title" style="margin: 10px 0px 0px 20px";> reviews </h4>
+            
+                  <% if @sphere.bookings.any? %>
+                    <% @sphere.bookings.each do |booking| %>
+                    <ul class="list-group list-group-flush">
+                      <% if booking.review.present? %>
+                          <li class="list-group-item"><%= "☀️" * booking.review.rating %><br><em>"<%= booking.review.description %>"</em></li>
+                      <%else%>
+                        <li class="list-group-item"> no reviews yet</li>
+                      <% end %>
+                    </ul>
+                    <% end %>
                   <%else%>
-                    <li class="list-group-item"><p>no reviews yet.</p></li>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">no reviews yet</li>
+                    </ul>
+
                   <% end %>
                 <% end %>
               </ul>
