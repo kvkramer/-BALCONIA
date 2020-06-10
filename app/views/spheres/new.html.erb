@@ -1,16 +1,15 @@
 <div class="edit-banner"> share your sphere </div>
 <div class="card-sphere">
-<div id="edit-form">
-  <div class="mt-3">
+<div class="container mt-4">
+  <div id="edit-form">
+    <div class="mt-3">
       <div class="row">
         <div class="col-12">
           <%= simple_form_for(@sphere) do |f| %>
             <div class="form-group">
-
               <%= f.label :title, class: "lowercase" %>
               <%= f.text_field :title, class: 'form-control', placeholder: ' Sunny rooftop terrace...' %>
             </div>
-
             <div class="form-group">
               <%= f.label :description, class: "lowercase" %>
               <%= f.text_field :description, class: 'form-control', placeholder: ' Enjoy the warm summer vibes...' %>

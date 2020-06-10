@@ -24,6 +24,7 @@
   color: $gray;
 }
 
+
 .card-sphere p {
   line-height: 1.4;
   opacity: .7;
@@ -56,6 +57,9 @@
   padding-top: 16px;
   padding-bottom: 16px;
   width: 95%
+
+.card-sphere .card-sphere-infos a{
+  color: $yellow;
 }
 
 .card-sphere-show .card-sphere-show-infos {
