@@ -1,57 +1,57 @@
 .btn-yellow {
-    width: 140px;
-    border: none;
-    opacity: 0.7;
-    background-color: #F7D167;
+  width: 140px;
+  border: none;
+  opacity: 0.7;
+  background-color: #F7D167;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 6px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  a {
     color: white;
-    padding: 8px 25px;
-    border-radius: 6px;
-    font-family: "Quicksand", sans-serif;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    a {
-      color: white;
-      text-decoration: none;
-      border: none;
-    }
-    input {
-      border: none;
-    }
-  }
-
-  .btn-yellow:active {
     text-decoration: none;
     border: none;
   }
-
-  .btn-yellow:hover {
-    background-color: #F7D167;
-    color: white;
-    padding: 8px 25px;
-    border-radius: 6px;
-    opacity: 1;
-    text-decoration: none;
-    font-family: "Quicksand", sans-serif;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    a {
-      color: white;
-      text-decoration: none;
-      border: none;
-    }
+  input {
+    border: none;
   }
+}
+
+.btn-yellow:active {
+  text-decoration: none;
+  border: none;
+}
+
+.btn-yellow:hover {
+  background-color: #F7D167;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 6px;
+  opacity: 1;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  a {
+    color: white;
+    text-decoration: none;
+    border: none;
+  }
+}
 
 .btn.btn-light {
   width: 100%;
   padding: 8px 25px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
-  color: #708090;
+  color: #708090 ;
   text-align: center;
 }
 
 .btn-light {
   color:  #708090;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa !important;
   border-color: #f8f9fa;
   width: 140px;
   padding: 8px 25px;
