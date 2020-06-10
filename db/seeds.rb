@@ -65,4 +65,18 @@ sphere9 = Sphere.create!(title: "house boat on the Spree", address: "Hauptstrass
 
 sphere10 = Sphere.create!(title: "home office with large desk and screen", address: "Am Friedrichshain 3, Berlin", cost_per_day: 9, user_id: user2, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
 
+sphere11 = Sphere.create!(title: "House boat on the Spree", address: "Hauptstr. 15, 10137 Berlin", description: "Enjoy a relaxing day on Berlin's waters for a day!" cost_per_day: 35, user_id: user3, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
+
+sphere12 = Sphere.create!(title: "Plant lover's paradise", address: "Oderstr. 1, Berlin", description: "Indulge in a green miracle garden in the heart of Neukölln!" cost_per_day: 25, user_id: user3, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
+
+sphere13 = Sphere.create!(title: "Cozy spacious loft!", address: "Emser Str. 116, Berlin", description: "Spend an alternative working day at our amazing loft!" cost_per_day: 45, user_id: user3, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+
+sphere14 = Sphere.create!(title: "Green haven", address: "Weisestr. 49, 12049 Berlin", description: "Relax in our beautiful flower filled garden !" cost_per_day: 20, user_id: user3, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
+
+sphere15 = Sphere.create!(title: "Balcony paradise!", address: "Taborstr. 15, Berlin", description: "Charming Tuscany-style get-away in the heart of Kreuzberg!" cost_per_day: 35, user_id: user3, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+
+sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!" cost_per_day: 30, user_id: user3, barbecue: false, balcony: false, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+
+sphere17 = Sphere.create!(title: "A green garden dream!", address: "Gartenstr. 40, 10137 Berlin", description: "Work or simply relax in a beautiful garden and finish your day with a bbq on our terrace!" cost_per_day: 30, user_id: user3, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
+
 puts "Finished!"
