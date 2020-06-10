@@ -111,19 +111,19 @@
             <div>
                 <h4 class="card-title" style="margin: 10px 0px 0px 20px";> reviews </h4>
             
-                  <% if @bookings %>
+                  <% if @sphere.bookings.any? %>
+                    <% @sphere.bookings.each do |booking| %>
                     <ul class="list-group list-group-flush">
-                      <% @bookings.each do |booking| %>
-                        <% if booking.review %>
+                      <% if booking.review.present? %>
                           <li class="list-group-item"><%= "☀️" * booking.review.rating %><br><em>"<%= booking.review.description %>"</em></li>
-                        <%else%>
-                          <li class="list-group-item"><p>no reviews yet.</p></li>
-                        <% end %>
+                      <%else%>
+                        <li class="list-group-item"> no reviews yet</li>
                       <% end %>
                     </ul>
+                    <% end %>
                   <%else%>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">no reviews yet.</li>
+                      <li class="list-group-item">no reviews yet</li>
                     </ul>
                   <% end %>
 

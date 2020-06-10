@@ -34,7 +34,7 @@
               <h5> cost per day: <%= booking.cost_per_day %> €</h5>
             </div>
 
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-around">
                 <% if booking.date < Date.today %>
                   <%= link_to "add review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%>
                 <%else%>
