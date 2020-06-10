@@ -1,11 +1,11 @@
 <!-- _user.html.erb -->
 <% if current_user.is_following?(user.id) %>
   <li data-user="<%= user.id %>">
-    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
+    <%= link_to "unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
   </li>
 <% else %>
   <li data-user="<%= user.id %>">
-  <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+  <%= link_to "follow", follow_user_path(user.id), method: :post, remote: true %>
   </li>
 <% end %>
 

@@ -4,14 +4,14 @@
   //background-repeat: no-repeat;
   background-position: center;
   background-color: $yellow;
-  height: 80px;
+  height: 100px;
   width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: medium;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -22,7 +22,7 @@
 
 
 
-  .banner h1 {
+  .banner.h1 {
     font-size: 36px;
     font-weight: medium;
     text-align: center;

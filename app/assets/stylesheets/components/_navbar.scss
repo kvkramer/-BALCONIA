@@ -2,11 +2,13 @@
   background: $yellow;
   position: fixed;
   bottom: 0;
+  left: 0;
   height: 60px;
   width: 100%;
   z-index: 3;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
 .navbar-items {
   margin: auto;
   display: flex;
