@@ -1,15 +1,14 @@
 .btn-yellow {
-    display: flex;
-    align-items: center;
+  text-align: center;
+  &:focus{text-decoration: none; border: none;}
   width: 140px;
   border: none;
   opacity: 0.7;
   background-color: #F7D167;
   color: white;
-  padding: 8px 25px;
+  padding: 8px 20px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
-  text-align: center;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   a {
     color: white;
@@ -27,14 +26,8 @@
 }
 
 .btn-yellow:hover {
-  background-color: #F7D167;
-  color: white;
-  padding: 8px 25px;
-  border-radius: 6px;
   opacity: 1;
   text-decoration: none;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   a {
     color: white;
     text-decoration: none;
@@ -44,11 +37,13 @@
 
 .btn.btn-light {
   width: 100%;
-  padding: 8px 25px;
+  padding: 8px 20px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
   color: #708090 ;
   text-align: center;
+  text-align: center;
+  &:focus{text-decoration: none; border: none;}
 }
 
 .btn-light {
@@ -56,12 +51,22 @@
   background-color: #f8f9fa !important;
   border-color: #f8f9fa;
   width: 140px;
-  padding: 8px 25px;
+  padding: 8px 20px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
   color: #708090;
   text-align: center;
   &:focus{text-decoration: none; border: none;}
+}
+
+.btn-light:active {
+  text-decoration: none;
+  border: none;
+}
+
+.btn.btn-light:active {
+  text-decoration: none;
+  border: none;
 }
 
 #file-upload-button {
