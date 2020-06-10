@@ -1,14 +1,12 @@
 .card-sphere {
   overflow: hidden;
   height: auto;
-  width: 80%;
+  width: 100%;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   flex-direction: column;
   padding: 0px 0px 10px 0px;
 }
@@ -17,20 +15,18 @@
   max-height: 50%;
   width: 80%;
   object-fit: cover;
-  padding-top: 16px;
 }
 
-//.card-sphere a {
-  //font-size: 20px;
-  //line-height: 1.4;
-  //opacity: .7;
-  //margin-bottom: 0;
-  //margin-top: 8px;
-  //color: $gray;
-//}
+.card-sphere a {
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $gray;
+}
+
 
 .card-sphere p {
-  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -50,13 +46,10 @@
 }
 
 .card-sphere-show h2 {
-  font-size: 30px;
-  font-weight: bold;
   margin: 0;
 }
 
 .card-sphere-show p {
-  font-size: 15px;
   opacity: .7;
   margin: 0;
 }
@@ -64,11 +57,10 @@
 .card-sphere .card-sphere-infos {
   padding-top: 16px;
   padding-bottom: 16px;
-  width: 80%
+  width: 95%;
 }
 
 .card-sphere .card-sphere-infos a{
-  font-size: 25px;
   color: $yellow;
 }
 

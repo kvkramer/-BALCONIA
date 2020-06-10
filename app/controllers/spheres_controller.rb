@@ -36,8 +36,6 @@ class SpheresController < ApplicationController
       current_user.following.each do |following|
         @spheres = policy_scope(Sphere).where(user_id: following)
       end
-    else
-      @spheres = policy_scope(Sphere).all
     end
 
 
