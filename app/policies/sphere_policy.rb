@@ -14,6 +14,10 @@ class SpherePolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    record.user == user
+  end
+
   def create?
     return new?
   end

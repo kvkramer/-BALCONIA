@@ -1,49 +1,53 @@
+<div class="edit-banner"> your bookings </div>
 <div class="page-container">
-  <div class="container mt-4">
-    <div class="edit-banner"> all your bookings </div>
 
     <div class="spheres-container">
       <% @user_bookings.each do |booking| %>
 
 
-      <div class="card-sphere">
+        <div class="card-sphere">
 
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <% if booking.sphere.photos.attached? %>
-              <% booking.sphere.photos.each_with_index do |photo, index| %>
-                <div class="carousel-item <%='active' if index == 0 %>">
-                  <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
-                </div>
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <% if booking.sphere.photos.attached? %>
+                <% booking.sphere.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%='active' if index == 0 %>">
+                    <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
 
-        <div class="card-sphere-infos">
-          <h5><%= booking.sphere.title %></h5>
-          <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
-          <p> 💲 cost per day: <%= booking.cost_per_day %></p>
-          <% if policy(booking).destroy? %>
-           <p><%= link_to '🗑 cancel booking ', booking, method: :delete, data: { confirm: 'are you sure?' } %></p>
-          <% end %>
-          
-          <p><%= link_to "add review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%><p>
+            <div class="card-sphere-infos">
+              <h5><%= link_to booking.sphere.title, sphere_path(booking.sphere) %></h5>
+              <p> from <%= booking.starttime.strftime("%I:%M %p")  %> to <%= booking.endtime.strftime("%I:%M %p") %></p>
+              <p> cost per day: <%= booking.cost_per_day %></p>
+            </div>
+
+              <div class="d-flex justify-content-around">
+                <% if booking.date < Date.today %>
+                  <%= link_to "add review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%>
+                <%else%>
+                  <button class="btn-light disabled">add review</button>
+                <% end %>
+
+                <% if policy(booking).destroy? %>
+                <button class="btn-light"><%= link_to 'cancel booking', booking_path(booking), method: :delete, data: { confirm: 'are you sure?' } %></button>
+                <% end %>
+              </div>
+
         </div>
-      </div>
       <% end %>
-
     </div>
-
-  </div>
 </div>
 
 

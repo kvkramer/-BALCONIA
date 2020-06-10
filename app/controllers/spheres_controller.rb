@@ -10,8 +10,8 @@ class SpheresController < ApplicationController
   # end
 
   def index
-    # City search
 
+    # City search
     if params[:query].present?
       @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
     elsif params[:search].present?
@@ -22,7 +22,7 @@ class SpheresController < ApplicationController
       @spheres = policy_scope(Sphere).all
     end
 
-    # # price filtering
+    # price filtering
     if params[:cost_per_day] == 'below 20'
       @spheres = policy_scope(Sphere).where("cost_per_day < 20")
     elsif params[:cost_per_day] == 'below 10'
@@ -30,6 +30,16 @@ class SpheresController < ApplicationController
     elsif params[:cost_per_day] == 'free'
       @spheres = policy_scope(Sphere).where("cost_per_day = 0")
     end
+
+    # Follower filter
+    if params[:search]
+      current_user.following.each do |following|
+        @spheres = policy_scope(Sphere).where(user_id: following)
+      end
+    else
+      @spheres = policy_scope(Sphere).all
+    end
+
 
     @markers = @spheres.geocoded.map do |sphere|
       {
@@ -71,10 +81,11 @@ class SpheresController < ApplicationController
   end
 
   def update
+
     authorize @sphere
 
     if @sphere.update(sphere_params)
-      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
+      redirect_to sphere_path(@sphere), notice: 'saved successfully'
     else
       render :edit
     end
@@ -89,7 +100,7 @@ class SpheresController < ApplicationController
     @sphere.destroy
 
     # no need for app/views/restaurants/destroy.html.erb
-    redirect_to root_path, notice: 'Deleted successfully.'
+    redirect_to root_path, notice: 'deleted successfully'
   end
 
   private

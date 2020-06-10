@@ -13,6 +13,11 @@
   </div>
   <%= simple_form_for :search, method: :get do |f| %>
     <div>
+      <%= f.check_box :following, { checked: params[:search].present? && params[:search][:following] ? true : false }, true, false %>
+      <%= f.label :following %>
+    </div>
+    <br>
+    <div>
       <%= f.check_box :barbecue, { checked: params[:search].present? && params[:search][:barbecue] ? true : false }, true, false %>
       <%= f.label :barbecue %>
     </div>
