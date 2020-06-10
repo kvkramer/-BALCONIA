@@ -7,7 +7,11 @@
       <%= image_tag(chatroom.user.image, width: "100", class: "avatar")  %>
       <h2><%= chatroom.sphere.title %></h2>
       <p><%= chatroom.user.name %></p>
+
       <p>display here last message</p>
+
+<!--       <p><%#= chatroom.user.messages.last %></p> -->
+
     </div>
   <% end %>
 <% end %>
