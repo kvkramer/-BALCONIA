@@ -1,11 +1,13 @@
 .card-message {
-  border: solid 1px grey;
-  width: 95%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  
   h2 {
     font-size: 20px
-  }
-  img {
-    border-radius: 50%
   }
 }
 
@@ -13,3 +15,7 @@
   text-decoration: none;
 }
 
+.card-message p {
+  margin: 0;
+  line-height: 1.4;
+}

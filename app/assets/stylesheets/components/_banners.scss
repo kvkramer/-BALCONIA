@@ -1,24 +1,23 @@
-
-  .edit-banner {
-    background-size: full-width-banner img;
-    //background-size: cover;
-    //background-repeat: no-repeat;
-    background-position: center;
-    background-color: $yellow;
-    min-height: 100px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 28px;
-    font-weight: medium;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    border-radius: 0px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    font-family: 'Quicksand', sans-serif;
-    padding: 15px 15px
+.edit-banner {
+  background-size: full-width-banner img;
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  background-position: center;
+  background-color: $yellow;
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  font-weight: medium;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0 !important;
+  // padding: 15px 15px;
   }
 
 

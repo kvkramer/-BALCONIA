@@ -2,6 +2,7 @@
 <!-- <p>Sent Messages</p> -->
 <% @user_chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom), class: "chatroom-link" do %>
+
     <div class="card-message">
       <%= image_tag(chatroom.user.image, width: "100")  %>
       <h2><%= chatroom.sphere.title %></h2>
@@ -12,6 +13,7 @@
 <% end %>
 
 <!-- <p>Sphere Request</p> -->
+
 
 <% @spheres_chats.each do |chatroom| %>
   <% if chatroom.length > 0 %>
