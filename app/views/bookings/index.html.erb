@@ -1,5 +1,4 @@
 <div class="edit-banner"> your bookings </div>
-<div class="page-container">
 
     <div class="spheres-container">
       <% @user_bookings.each do |booking| %>
@@ -34,21 +33,21 @@
               <h5> cost per day: <%= booking.cost_per_day %> €</h5>
             </div>
 
-              <div class="d-flex justify-content-around">
+              <div class="d-flex justify-content-around" style="width: 100%;">
                 <% if booking.date < Date.today %>
-                  <%= link_to "add review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%>
+                  <%= link_to "review", new_sphere_booking_review_path(sphere_id: booking.sphere_id, booking_id: booking.id), class: 'btn-yellow'%>
                 <%else%>
-                  <%= link_to 'add review', '#', class: 'btn-light disabled' %>
+                  <%= link_to 'review', '#', class: 'btn-light disabled' %>
                 <% end %>
 
                 <% if policy(booking).destroy? %>
-                  <%= link_to 'cancel booking', booking_path(booking), method: :delete, data: { confirm: 'are you sure?' }, class: 'btn-light' %>
+                  <%= link_to 'delete', booking_path(booking), method: :delete, data: { confirm: 'are you sure?' }, class: 'btn-light' %>
                 <% end %>
-              </div> 
+              </div>
 
         </div>
 
-             
+
 
       <% end %>
     </div>
