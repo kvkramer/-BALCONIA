@@ -84,7 +84,7 @@ sphere13 = Sphere.create!(title: "Cozy spacious loft!", address: "Emser Str. 116
 
 sphere14 = Sphere.create!(title: "Green haven", address: "Weisestr. 49, 12049 Berlin", description: "Relax in our beautiful flower filled garden !", cost_per_day: 20, user_id: user3.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
 
-sphere15 = Sphere.create!(title: "Balcony paradise!", address: "Taborstr. 15, Berlin", description: "Charming Tuscany-style get-away in the heart of Kreuzberg!", cost_per_day: 35, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+sphere15 = Sphere.create!(title: "Tuscany-style get-away!", address: "Taborstr. 15, Berlin", description: "Charming Italy-inspired apartment in the heart of Kreuzberg!", cost_per_day: 35, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
 
 sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!", cost_per_day: 30, user_id: user3.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
 

@@ -37,12 +37,20 @@ h5 {
     color: $gray;
 }
 
+.bookings-index-header {
+  margin: 15px 0px;
+}
 
-#bookings-index-header {
-    font-size: 36px;
-    color: $gray;
+.bookings-index-header a {
+    font-size: 24px;
+    color: $yellow;
+    margin: 15px 0px;
 }
 
 .fas {
   text-decoration: none;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
 }
