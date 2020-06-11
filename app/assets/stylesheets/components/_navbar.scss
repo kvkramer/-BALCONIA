@@ -20,6 +20,7 @@
   margin: auto;
   color: white;
   text-decoration: none;
+  &:focus{text-decoration: none; border: none;}
 }
 
 h3 {
@@ -28,9 +29,13 @@ h3 {
 
 .fas, fas:hover {
   text-decoration: none;
+  &:focus{text-decoration: none; border: none;}
+  cursor: default;
 }
 
 i, i:hover {
   text-decoration: none;
+  &:focus{text-decoration: none; border: none;}
+  cursor: default;
 }
 
