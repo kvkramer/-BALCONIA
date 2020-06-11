@@ -11,9 +11,6 @@
   margin: 30px;
 }
 
-// .logout a, p{
-//   color: black;
-// }
 
 .card-sphere-show-contact {
   overflow: hidden;
@@ -23,11 +20,26 @@
 }
 
 .card-sphere-show-contact > img {
-  height: 300px;
-  width: 100%;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 
 .edit-banner {
   margin-bottom: 20px;
+}
+
+.card-sphere-contact-page {
+  height: auto;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+}
+
+.sphere-content {
+  padding: 15px;
 }
