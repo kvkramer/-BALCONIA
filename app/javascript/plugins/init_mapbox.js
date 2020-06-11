@@ -59,7 +59,6 @@ const initMapbox = () => {
     const mapElement = document.getElementById('map');
     const map = buildMap(mapElement);
     if (mapElement.dataset.markers != "" ) {
-      debugger
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers);
       fitMapToMarkers(map, markers);
