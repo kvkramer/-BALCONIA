@@ -23,7 +23,7 @@
       </div>
 
       <div class="card-sphere-show">
-        <div class="card-sphere-show-infos">
+        <div class="card-sphere-show-infos" style="border-bottom: 1px solid lightgray;">
           <div>
             <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
             <br>
@@ -51,7 +51,7 @@
               <% end %>
 
               <% if @sphere.highspeed_wifi %>
-              <p> highspeed_wifi </p>
+              <p> highspeed wifi </p>
               <% end %>
 
               <% if @sphere.plants %>
@@ -61,7 +61,7 @@
               <p> quiet </p>
               <% end %>
               <% if @sphere.spacious_desk %>
-              <p> spacious_desk </p>
+              <p> spacious desk </p>
               <% end %>
               <% if @sphere.barbecue %>
               <p> barbecue </p>
@@ -70,7 +70,7 @@
               <p> cozy </p>
               <% end %>
               <% if @sphere.pet_friendly %>
-              <p> pet_friendly </p>
+              <p> pet friendly </p>
               <% end %>
             </div>
           <br>
@@ -93,18 +93,18 @@
         </div>
       </div>
       </div>
-      
+
       <div class="card" style="border: none; padding: 0px 0px;">
         <div class="card-body" style="text-align: left;">
-          <h4 class="card-title">reviews</h4>
+          <h4 class="card-title">reviews:</h4>
         </div>
         <% if @bookings %>
           <ul class="list-group list-group-flush">
             <% @bookings.each do |booking| %>
               <% if booking.review %>
-                <li class="list-group-item"><%= "☀️" * booking.review.rating %><br><em>"<%= booking.review.description %>"</em></li>
+                <li class="list-group-item"><%= "☀ " * booking.review.rating %><br><em>"<%= booking.review.description %>"</em></li>
               <%else%>
-                <li class="list-group-item"><p>no reviews yet.</p></li>
+                <li class="list-group-item"><p>no reviews yet</p></li>
               <% end %>
             <% end %>
           </ul>
@@ -124,18 +124,21 @@
         <% if @sphere.user == current_user %>
         <br>
         <% else %>
-         <div class="card lowest" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
-            <h4> meet your host </h4>
+
+          <div class="card lowest" style="border: none; padding: 16px; border-top: 1px solid lightgray;">
+            <h4 style="margin-top: 5px;"> meet your host: <%= link_to @sphere.user.name, user_path(@sphere.user), style: 'font-weight: bolder; font-size: 24px' %> </h4>
               <br>
-              <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
-                <%= link_to @sphere.user.name, user_path(@sphere.user) %>
-               <div class="d-flex justify-content-center">
-                <%= link_to 'ask host a question', sphere_chatrooms_path(@sphere), method: :post, class: 'btn btn-light' %>
+              
+               <%= link_to sphere_chatrooms_path(@sphere), method: :post, class: 'd-flex justify-content-around align-items-center btn btn-light' do %>
+                <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+                <p>ask the host a question</p>
+                <% end %>
+
                </div>
-              <% end %>
+        <% end %>
 
             <!-- <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a> -->
-
+          </div>
          <br>
 
     </div>

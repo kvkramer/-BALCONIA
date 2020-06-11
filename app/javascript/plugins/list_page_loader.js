@@ -9,7 +9,6 @@ const mapLoader = () => {
 
 const listLoader = () => {
   const listButton = document.getElementById("list_button");
-  console.log(listButton)
 
   listButton.addEventListener("click", (event) => {
     map_view.classList.add("hidden")

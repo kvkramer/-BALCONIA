@@ -4,7 +4,8 @@
   //background-repeat: no-repeat;
   background-position: center;
   background-color: $yellow;
-  height: 100px;
+  padding: 20px 0px 20px 0px;
+  height: 120px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -20,7 +21,9 @@
   // padding: 15px 15px;
   }
 
-
+.margin {
+  margin-bottom: 20px !important;
+}
 
   .banner.h1 {
     font-size: 36px;

@@ -10,7 +10,7 @@
             <%= image_tag "illustration1.jpg", class:"home-image" %>
 
             <h1 style="font-size: 36px; font-weight: bold;">balconia</h1>
-            <h3>find your dream workplace</h3>
+            <h3>find your ideal workplace</h3>
             <p>all the comfort of your own home <br> - only better!</p>
 
             <div class="form">
@@ -21,16 +21,16 @@
               <%= text_field_tag :query,
                 params[:query],
                 class: "form-control string required",
-                placeholder: "Enter your city"
+                placeholder: "enter your city"
                 %>
-                <%= submit_tag "Explore our spheres", class: "btn-searchbar" %>
+                <%= submit_tag "explore our spheres", class: "btn-searchbar" %>
               <% end %>
 
               </div>
               <% end %>
               <div class="container d-flex justify-content-center">
 
-              <button class="box button btn btn-light"><%= link_to "Offer your sphere",  new_sphere_path %></button>
+              <button class="box button btn btn-light home"><%= link_to "offer your sphere",  new_sphere_path %></button>
 
 
               </div>

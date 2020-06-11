@@ -9,3 +9,29 @@
   padding-bottom: 20px;
 }
 
+
+
+.profile-components {
+  h4 {
+      font-size: 14px;
+      padding-bottom: 6px;
+      color: $gray;
+      margin-bottom: 0;
+      text-align: left;
+    }
+}
+
+.profile-title {
+  margin-bottom: 0;
+
+}
+
+.profile-spheres-count {
+  text-align: center;
+}
+
+.profile-card-title a {
+  text-align: left;
+  width: 100%;
+  font-size: 28px;
+}

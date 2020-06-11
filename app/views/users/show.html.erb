@@ -1,20 +1,36 @@
 <!-- user/show.html.erb -->
-<img src="<%= @user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+<div class="edit-banner margin" style="background-color: $yellow, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+  <% if @user == current_user %>
+    <h3>You</h3>
+  <% else %>
+    <h3><%= @user.name %></h3>
+  <% end %>
+</div>
+<img src="<%= @user.image %>" class="card-sphere-user avatar-bordered middle" style="height: 200px" alt="avatar of user" />
 
-<% if @user == current_user %>
-  <h3>You</h3>
-<% else %>
-  <h3><%= @user.name %></h3>
-<% end %>
+
 <%#= render @user %>
 <!-- follow -->
-<%= render 'user', user: @user %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 padding-top" style="padding-top: 210px">
+
+      <button class="box button btn btn-yellow home middle" style="text-decoration: none; list-style-type: none"><%= render 'user', user: @user %></button>
+    </div>
+
 
 <br>
-<p>all your messages with this user:</p>
+<br>
+<br>
+<div class="container" style="padding-top: 20px">
+<h1> all your messages with this user: </h1>
 
 <%= render @messages %>
 
 <%# @messages.each do |message| %>
   <%#= message %>
 <%# end %>
+</div>
+</div>
+</div>

@@ -1,16 +1,54 @@
-<div class="edit-banner"> your own spheres </div>
-  <div class="container my-4">
+<div class="edit-banner"> your profile </div>
+<div class="container my-4">
 
-    <% @spheres.each do |sphere|  %>
-      
+  <div class="profile-container">
+    <% avatar_url = current_user.image || "http://placehold.it/30x30" %>
+    <img src="<%= avatar_url%>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
+    <h3 class="profile-title">welcome back, <%= current_user.name.downcase  %></h3>
+
+    <% if user_signed_in? %>
+          <!-- <div class="edit-banner"> log out </div> <%= current_user.name %>
+          <% avatar_url = current_user.image || "http://placehold.it/30x30" %>
+          <img src="<%= avatar_url%>" class="card-sphere-user avatar-bordered" alt="avatar of user" /> -->
+          <%= link_to "logout", destroy_user_session_path, method: :delete, class: "dropdown-item text-center" %>
+          <% else %>
+          <div class="edit-banner"> log in </div>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+          <% end %>
+
+      </div>
+  </div>
+
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+        spheres
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+        followers
+      </a>
+    </li>
+  </ul>
+
+
+      <div class="container my-4">
+        <h5 class="profile-spheres-count mb-3">you have <%= current_user.spheres.count  %> spheres</h5>
+        <% @spheres.each do |sphere| %>
+        <div class="card-sphere-contact-page">
+
+
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <% if sphere.photos.attached? %>
-                <% sphere.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%='active' if index == 0 %>">
-                    <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
-                  </div>
-                <% end %>
+              <% sphere.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%='active' if index == 0 %>">
+                <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill, class: "d-block w-100", alt: "pictures of the apartment" %>
+              </div>
+              <% end %>
               <% end %>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -22,20 +60,43 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+          <div class="sphere-content">
+          <h4 class="profile-card-title"><%= link_to sphere.title.downcase, sphere_path(sphere) %></h4>
+          <!-- <p><%= sphere.address.downcase  %></p> -->
+          <p><%= sphere.description %></p>
+          <!-- <p class="card-sphere-show-pricing"> cost per day: <%= sphere.cost_per_day %>€</p> -->
 
-          <div>
-              <strong><p><%= sphere.title.downcase  %></p></strong>
-              <p><%= sphere.address.downcase  %></p>
-              <p> description: <%= sphere.description %></p>
-              <p> read reviews: </p>
-              <p class="card-sphere-show-pricing"> cost per day: <%= sphere.cost_per_day %>€</p>
+
+          <div class="d-flex justify-content-between" style="width: 100%;">
+
+
+            <%= link_to 'edit', edit_sphere_path(sphere), class: 'btn-yellow' %>
+
+            <% if policy(sphere).destroy? %>
+            <%= link_to sphere_path(sphere), method: :delete, data: { confirm: 'are you sure?' }, class: 'btn-light btn-delete' do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+            <% end %>
           </div>
-      
+          </div>
+          </div>
+          <% end %>
 
+          </div>
 
-    <% end %>
+        <div class="logout">
+          <% if user_signed_in? %>
+          <!-- <div class="edit-banner"> log out </div> <%= current_user.name %>
+          <% avatar_url = current_user.image || "http://placehold.it/30x30" %>
+          <img src="<%= avatar_url%>" class="card-sphere-user avatar-bordered" alt="avatar of user" /> -->
+          <%= link_to "log out here", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+          <div class="edit-banner"> log in </div>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+          <% end %>
+        </div>
 
-    <div class="card-sphere-show-contact">
+    <!-- <div class="card-sphere-show-contact">
       <p>you are following:</p>
       <ul>
         <% current_user.following.each do |following| %>
@@ -44,29 +105,17 @@
           <%= link_to following.name, user_path(following) %>
         <% end %>
       </ul>
-    </div>
+    </div> -->
 
-    <div class="logout">
-      <% if user_signed_in? %>
-          <div class="edit-banner"> log out </div> <%= current_user.name %>
-          <% avatar_url = current_user.image || "http://placehold.it/30x30" %>
-          <img src="<%= avatar_url%>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
-          <%= link_to "log out here", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-        <div class="edit-banner"> log in </div>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-      <% end %>
-    </div>
-
-      <div class="footer-links">
+    <!--   <div class="footer-links">
         <div class="btn-searchbar" id="whitelink"> <a href="mailto:hello@balconia.xyz">contact us via mail</a> </div>
         <a href="#"><i class="fab fa-github"></i></a> -
         <a href="#"><i class="fab fa-instagram"></i></a> -
         <a href="#"><i class="fab fa-facebook"></i></a> -
         <a href="mailto:hello@balconia.xyz">hello@balconia.xyz</a>
         <p><i class="fas fa-heart", color: yellow></i> share your thoughs! </p>
-      </div>
-  </div>
+      </div> -->
+
 
 
 
