@@ -70,7 +70,7 @@
           <div class="d-flex justify-content-between" style="width: 100%;">
 
 
-            <%= link_to 'edit', '#', class: 'btn-yellow' %>
+            <%= link_to 'edit', edit_sphere_path(sphere), class: 'btn-yellow' %>
 
             <% if policy(sphere).destroy? %>
             <%= link_to sphere_path(sphere), method: :delete, data: { confirm: 'are you sure?' }, class: 'btn-light btn-delete' do %>
