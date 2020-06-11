@@ -37,7 +37,7 @@ file2 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591372354/p8
 sphere1.photos.attach(io: file2, filename: 'spheres/2.png', content_type: 'image/png')
 sphere1.save
 
-sphere2 = Sphere.create!(title: "cozy living room and balcony", address: "Prenzlauer Berg, Berlin", cost_per_day: 9, user_id: user2.id, barbecue: false, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+sphere2 = Sphere.create!(title: "cozy living room and balcony", address: "Pappelallee 3, Berlin", cost_per_day: 9, user_id: user2.id, barbecue: false, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
 
 file3 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591370486/xi2a69u5ct18t1fh78z3h6hft9gm.jpg')
 sphere2.photos.attach(io: file3, filename: 'spheres/3.png', content_type: 'image/png')
