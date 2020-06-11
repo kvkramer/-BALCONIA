@@ -104,6 +104,7 @@ sphere15 = Sphere.create!(title: "Balcony paradise!", address: "Taborstr. 15, Be
 # file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865994/kanan-khasmammadov-RIsKOU4cAd4-unsplash_sekqel.jpg')
 # sphere15.photos.attach(io: file, filename: 'spheres/153.png', content_type: 'image/png')
 
+
 sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!", cost_per_day: 30, user_id: user3.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
 # file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865993/atte-gronlund-JiphyElpixM-unsplash_w7rblk.jpg')
 # sphere16.photos.attach(io: file, filename: 'spheres/161.png', content_type: 'image/png')
