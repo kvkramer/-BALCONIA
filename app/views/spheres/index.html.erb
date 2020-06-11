@@ -13,60 +13,62 @@
   </div>
   <%= simple_form_for :search, method: :get do |f| %>
     <div>
-      <%= f.check_box :following, { checked: params[:search].present? && params[:search][:following] ? true : false }, true, false %>
-      <%= f.label :following %>
-    </div>
-    <br>
-    <div>
       <%= f.check_box :barbecue, { checked: params[:search].present? && params[:search][:barbecue] ? true : false }, true, false %>
-      <%= f.label :barbecue %>
+      <%= f.label :barbecue, "barbecue" %>
     </div>
     <div>
       <%= f.check_box :balcony, { checked: params[:search].present? && params[:search][:balcony] ? true : false }, true, false %>
-      <%= f.label :balcony %>
+      <%= f.label :balcony, "balcony" %>
     </div>
     <div>
       <%= f.check_box :sunny, { checked: params[:search].present? && params[:search][:sunny] ? true : false }, true, false %>
-      <%= f.label :sunny %>
+      <%= f.label :sunny, "sunny" %>
     </div>
     <div>
       <%= f.check_box :quiet, { checked: params[:search].present? && params[:search][:quiet] ? true : false }, true, false %>
-      <%= f.label :quiet %>
+      <%= f.label :quiet, "quiet" %>
     </div>
     <div>
       <%= f.check_box :garden, { checked: params[:search].present? && params[:search][:garden] ? true : false }, true, false %>
-      <%= f.label :garden %>
+      <%= f.label :garden, "garden" %>
     </div>
     <div>
       <%= f.check_box :terrace, { checked: params[:search].present? && params[:search][:terrace] ? true : false }, true, false %>
-      <%= f.label :terrace %>
+      <%= f.label :terrace, "terrace" %>
     </div>
     <div>
       <%= f.check_box :plants, { checked: params[:search].present? && params[:search][:plants] ? true : false }, true, false %>
-      <%= f.label :plants %>
+      <%= f.label :plants, "plants" %>
     </div>
     <div>
       <%= f.check_box :spacious_desk, { checked: params[:search].present? && params[:search][:spacious_desk] ? true : false }, true, false %>
-      <%= f.label :spacious_desk %>
+      <%= f.label :spacious_desk, "spaceous desk" %>
     </div>
     <div>
       <%= f.check_box :highspeed_wifi, { checked: params[:search].present? && params[:search][:highspeed_wifi] ? true : false }, true, false %>
-      <%= f.label :highspeed_wifi %>
+      <%= f.label :highspeed_wifi, "highspeed wifi" %>
     </div>
     <div>
       <%= f.check_box :cozy, { checked: params[:search].present? && params[:search][:cozy] ? true : false }, true, false %>
-      <%= f.label :cozy %>
+      <%= f.label :cozy, "cozy" %>
     </div>
      <div>
       <%= f.check_box :pet_friendly, { checked: params[:search].present? && params[:search][:pet_friendly] ? true : false }, true, false %>
-      <%= f.label :pet_friendly %>
+      <%= f.label :pet_friendly, "pets allowed" %>
     </div>
+    <br>
+    <div>
+      <%= f.check_box :following, { checked: params[:search].present? && params[:search][:following] ? true : false }, true, false %>
+      <%= f.label :following, "hosts that I'm following" %>
+    </div>
+    <br>
     <div>
       <%= select_tag(:cost_per_day, options_for_select(["below 20", "below 10", "free"], selected: params[:cost_per_day]), :include_blank => "cost per day") %>
     </div>
-    <%= f.submit "filter" %>
+     <br>
+    <%= f.button :submit, 'filter', class: 'btn btn-yellow' %>
   <% end %>
-  <br>
+
 
 
 

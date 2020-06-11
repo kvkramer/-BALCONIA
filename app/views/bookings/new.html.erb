@@ -1,13 +1,12 @@
-<div class="page-container" style="background-color: white;">
-  
-
-    <div class="edit-banner">
+    <div class="edit-banner margin" style="background-color: $yellow, linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
       book a sphere
     </div>
 
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12" style="margin-top: 10px;">
+
+        <div class="col-12 padding-top">
+        
           <!--     <p>Price per day: @sphere.price %></p> -->
 
           <%= simple_form_for ([ @sphere, @booking ]) do |f| %>
@@ -15,9 +14,10 @@
           <%= f.input :starttime %>
           <%= f.input :endtime %>
           <br>
-          <%= f.submit "instant booking", class: "btn-yellow", style: "padding: 8px 7px" %>
+
+          <%= f.submit "instant booking", class: "btn-yellow middle" %>
           <% end %>
-        </div>
       </div>
     </div>
 </div>
+      
