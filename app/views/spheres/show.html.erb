@@ -1,6 +1,6 @@
 <div class="spheres-container">
-  <div class="row">
-    <div class="col-12 m-auto">
+<!--   <div class="row">
+    <div class="col-12 m-auto"> -->
 
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -115,9 +115,9 @@
           </ul>
         <% end %>
 
-            <div class="card-body d-flex justify-content-center">
-              <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
-            </div>
+        <div class="card-body d-flex justify-content-center">
+          <%= link_to 'continue search', spheres_path, class: 'btn btn-light' %>
+        </div>
       </div>
 
          <br>
@@ -125,7 +125,7 @@
         <% if @sphere.user == current_user %>
         <br>
         <% else %>
-         <div class="card" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
+         <div class="card lowest" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
             <h4> meet your host </h4>
               <br>
               <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
@@ -136,10 +136,11 @@
               <% end %>
 
             <!-- <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a> -->
-         
+
          <br>
 
     </div>
  </div>
+
 
 
