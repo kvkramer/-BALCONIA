@@ -6,10 +6,12 @@
   <% end %>
 </div>
 
-<div class="message-form">
+<div class="d-flex justify-content-between">
   <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, label_html: { class: 'lowercase' }, placeholder: "message #{@chatroom.user.name}" %>
-    <%= f.submit 'send' %>
+    <%= f.input :content, label: false, label_html: { class: 'btn-yellow' }, placeholder: "write a message" %>
+    <%= f.submit 'send', class: "btn-yellow chat-send" %>
+    <%= link_to 'back', sphere_path(@chatroom.sphere), class: 'btn-chat-back-sphere'%>
   <% end %>
+
 </div>
 
