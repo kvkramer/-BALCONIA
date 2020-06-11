@@ -32,5 +32,6 @@ h3 {
 
 i, i:hover {
   text-decoration: none;
+  &:focus{text-decoration: none; border: none;}
 }
 
