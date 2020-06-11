@@ -86,7 +86,7 @@ sphere12.photos.attach(io: file, filename: 'spheres/122.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866297/veronica-reverse-qYwyRF9u-uo-unsplash_koenmi.jpg')
 sphere12.photos.attach(io: file, filename: 'spheres/123.png', content_type: 'image/png')
 
-sphere13 = Sphere.create!(title: "Cozy spacious loft!", address: "Emser Str. 116, Berlin", description: "Spend an alternative working day at our amazing loft!", cost_per_day: 45, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+sphere13 = Sphere.create!(title: "Cozy spacious loft!", address: "Emser Str. 116, Berlin", description: "Spend an alternative working day at our amazing, spacious loft! Invite your co-workers, too!", cost_per_day: 45, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
 # file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865993/atte-gronlund-JiphyElpixM-unsplash_w7rblk.jpg')
 # sphere13.photos.attach(io: file, filename: 'spheres/131.png', content_type: 'image/png')
 # file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865994/evren-aydin-k_-rJeU2XTw-unsplash_srglvw.jpg')
