@@ -22,8 +22,14 @@
           <%= image_tag(chatroom.user.image, width: "100", class: "avatar")  %>
           <div class="card-message-details">
             <h2><%= chatroom.sphere.title %></h2>
-            <p><%= chatroom.messages.last.content.truncate(180) %></p>
-            <!-- <p id="message-time"><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></p> -->
+            <% if chatroom.messages.empty? %>
+              <p>no messages yet</p>
+            <% else %>
+              <p><%= chatroom.messages.last.content.truncate(180) %></p>
+              <p id="message-time"><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+
+            <% end %>
+
           </div>
         </div>
       <% end %>
