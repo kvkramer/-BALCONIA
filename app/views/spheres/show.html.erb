@@ -23,7 +23,7 @@
       </div>
 
       <div class="card-sphere-show">
-        <div class="card-sphere-show-infos">
+        <div class="card-sphere-show-infos" style="border-bottom: 1px solid lightgray;">
           <div>
             <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
             <br>
@@ -124,7 +124,7 @@
         <% if @sphere.user == current_user %>
         <br>
         <% else %>
-         <div class="card lowest" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
+          <div class="card lowest" style="box-shadow: 0 0 8px rgba(0,0,0,0.2); border: none; padding: 16px;">
             <h4> meet your host </h4>
               <br>
               <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
@@ -135,7 +135,7 @@
               <% end %>
 
             <!-- <a href="mailto:hello@balconia.xyz"><%= @sphere.user.email %></a> -->
-
+          </div>
          <br>
 
     </div>
