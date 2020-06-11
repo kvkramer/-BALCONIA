@@ -147,3 +147,37 @@ margin: 0px 0px 2px;
   left: 50%;
   transform: translateX(-50%);
 }
+
+.btn-chat-back-sphere {
+  font-size: 15px;
+  text-align: center;
+  height: 37px;
+  text-decoration: none;
+  // &:focus{text-decoration: none; border: none;}
+  width: 13%;
+  border: none;
+  opacity: 0.7;
+  background-color: $gray;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+
+}
+
+.btn-chat-back-sphere a:hover {
+  text-decoration: none;
+}
+
+.new_message {
+  justify-content: space-between !important;
+  .message_content {
+    width: 65% !important;
+  }
+  .chat-send {
+    width: 20% !important;
+    // padding: 10px;
+    font-size: 15px;
+  }
+}
