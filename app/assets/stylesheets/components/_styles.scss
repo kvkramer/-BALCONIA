@@ -19,6 +19,7 @@ h1 {
 a {
   font-size: 18px;
   color: $gray;
+  text-decoration: none;
 }
 
 p {
@@ -37,6 +38,8 @@ h5 {
     color: $gray;
 }
 
+
+
 .bookings-index-header {
   margin: 15px 0px;
 }
@@ -47,10 +50,11 @@ h5 {
     margin: 15px 0px;
 }
 
-.fas {
-  text-decoration: none;
+.text-lowercase {
+  text-transform: lowercase;
 }
 
-.text-lowercase {
+
+label {
   text-transform: lowercase;
 }

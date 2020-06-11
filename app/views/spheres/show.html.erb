@@ -51,7 +51,7 @@
               <% end %>
 
               <% if @sphere.highspeed_wifi %>
-              <p> highspeed_wifi </p>
+              <p> highspeed wifi </p>
               <% end %>
 
               <% if @sphere.plants %>
@@ -61,7 +61,7 @@
               <p> quiet </p>
               <% end %>
               <% if @sphere.spacious_desk %>
-              <p> spacious_desk </p>
+              <p> spacious desk </p>
               <% end %>
               <% if @sphere.barbecue %>
               <p> barbecue </p>
@@ -70,7 +70,7 @@
               <p> cozy </p>
               <% end %>
               <% if @sphere.pet_friendly %>
-              <p> pet_friendly </p>
+              <p> pet friendly </p>
               <% end %>
             </div>
           <br>
@@ -93,7 +93,7 @@
         </div>
       </div>
       </div>
-      
+
       <div class="card" style="border: none; padding: 0px 0px;">
         <div class="card-body" style="text-align: left;">
           <h4 class="card-title">reviews:</h4>
@@ -124,6 +124,7 @@
         <% if @sphere.user == current_user %>
         <br>
         <% else %>
+
           <div class="card lowest" style="border: none; padding: 16px; border-top: 1px solid lightgray;">
             <h4 style="margin-top: 5px;"> meet your host: <%= link_to @sphere.user.name, user_path(@sphere.user), style: 'font-weight: bolder; font-size: 24px' %> </h4>
               <br>

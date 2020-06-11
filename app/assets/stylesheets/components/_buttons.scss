@@ -88,25 +88,25 @@
 margin: 0px 0px 2px;
 }
 
-#list_button {
-  position: sticky;
+#list_button, #map_button {
   position: absolute;
-  bottom: 90.5%;
-  margin-left: 140px;
+  top: 26px;
   opacity: 1;
   height: 40px;
   width: 130px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-#map_button {
-  position: fixed;
-  position: absolute;
-  bottom: 98%;
-  margin-left: 110px;
-  opacity: 1;
-  height: 40px;
-  width: 130px;
-}
+// #map_button {
+//   position: fixed;
+//   position: absolute;
+//   bottom: 98%;
+//   margin-left: 110px;
+//   opacity: 1;
+//   height: 40px;
+//   width: 130px;
+// }
 
 #vincinity_button {
   position: fixed;
@@ -138,4 +138,12 @@ margin: 0px 0px 2px;
 
 #whitelink a{
   color: white;
+}
+
+.middle {
+  margin: auto;
+  width: 200px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
