@@ -87,7 +87,8 @@ margin: 0px 0px 2px;
 
 #list_button {
   position: sticky;
-  bottom: 91.5%;
+  position: absolute;
+  bottom: 90.5%;
   margin-left: 140px;
   opacity: 1;
   height: 40px;
@@ -96,7 +97,8 @@ margin: 0px 0px 2px;
 
 #map_button {
   position: fixed;
-  bottom: 91.5%;
+  position: absolute;
+  bottom: 98%;
   margin-left: 110px;
   opacity: 1;
   height: 40px;
