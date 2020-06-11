@@ -82,7 +82,7 @@ class SpheresController < ApplicationController
     authorize @sphere
 
     if @sphere.save
-      redirect_to sphere_path(@sphere), notice: 'Saved successfully'
+      redirect_to sphere_path(@sphere), notice: 'saved successfully'
     else
       render :new
     end
