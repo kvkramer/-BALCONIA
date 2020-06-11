@@ -11,15 +11,28 @@ class SpheresController < ApplicationController
 
   def index
 
+    @spheres = policy_scope(Sphere)
+
     # City search
     if params[:query].present?
-      @spheres = policy_scope(Sphere).where('address ILIKE ?', "%#{params[:query]}%")
+      @spheres = @spheres.where('address ILIKE ?', "%#{params[:query]}%")
     elsif params[:search].present?
       search_params = params[:search].select { |key, value| value == 'true'}
+      search_params = search_params.reject!{ |key| key == 'following'}
+      # raise
       search_params.permit!
-      @spheres = policy_scope(Sphere).where(search_params)
+      @spheres = @spheres.where(search_params)
+
+      if current_user.following.any? && params[:search][:following] == 'true'
+        current_user.following.each do |following|
+          # raise
+          @spheres = @spheres.where(user_id: following.id)
+
+        end
+      end
+
     else
-      @spheres = policy_scope(Sphere).all
+      @spheres = @spheres.all
     end
 
     # price filtering
@@ -32,19 +45,20 @@ class SpheresController < ApplicationController
     end
 
     # Follower filter
-    if params[:search]
-      current_user.following.each do |following|
-        @spheres = policy_scope(Sphere).where(user_id: following)
+    # if params[:search]
+    #   # current_user.following.each do |following|
+    #   #   @spheres = policy_scope(Sphere).where(user_id: following)
+    #   # end
+    # end
+
+    if @spheres.any?
+      @markers = @spheres.geocoded.map do |sphere|
+        {
+          lat: sphere.latitude,
+          lng: sphere.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
+        }
       end
-    end
-
-
-    @markers = @spheres.geocoded.map do |sphere|
-      {
-        lat: sphere.latitude,
-        lng: sphere.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { sphere: sphere })
-      }
     end
 
   end
