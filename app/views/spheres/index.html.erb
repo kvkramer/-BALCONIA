@@ -4,12 +4,12 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <button id="list_button" class="btn-yellow flex-item">list view</button>
+  <button id="list_button" class="btn-yellow flex-item"><p class="button-text">list view</p></button>
 </div>
 
 <div class="map-filters">
   <div class="map-filters-toggle">
-    <i class="fas fa-sliders-h"></i>
+    <i class="map fas fa-sliders-h"></i>
   </div>
   <%= simple_form_for :search, method: :get do |f| %>
     <div>
@@ -108,6 +108,6 @@
           </div>
         <% end %>
 
-        <button id="map_button" class="btn-yellow flex-item">map view</button>
+        <button id="map_button" class="btn-yellow flex-item"><p class="button-text">map view</p></button>
 </div>
 </div>

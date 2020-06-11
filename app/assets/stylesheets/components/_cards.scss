@@ -1,3 +1,6 @@
+.spheres-container {
+}
+
 .card-sphere {
   overflow: hidden;
   height: auto;
@@ -5,9 +8,9 @@
   background: white;
   display: flex;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
 }
 
 .card-sphere img {
@@ -19,7 +22,6 @@
 
 .card-sphere p {
   line-height: 1.4;
-  opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -41,11 +43,11 @@
 }
 
 .card-sphere-show p {
-  opacity: .7;
   margin: 0;
 }
 
 .card-sphere .card-sphere-infos {
+  padding-left: 5px;
   padding-top: 16px;
   padding-bottom: 16px;
   width: 95%;

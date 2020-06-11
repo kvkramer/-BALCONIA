@@ -1,4 +1,5 @@
 .btn-yellow {
+  font-size: 18px;
   text-align: center;
   &:focus{text-decoration: none; border: none;}
   width: 140px;
@@ -6,7 +7,7 @@
   opacity: 0.7;
   background-color: $yellow;
   color: white;
-  padding: 8px 20px;
+  padding: 8px 14px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -36,27 +37,32 @@
 }
 
 .btn.btn-light {
+  font-size: 18px;
   width: 100%;
-  padding: 8px 20px;
+  padding: 8px 14px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
   color: #708090 ;
-  text-align: center;
+  background-color: #ebeff2 !important;
+  border-color: #ebeff2;
   text-align: center;
   &:focus{text-decoration: none; border: none;}
 }
 
 .btn-light {
   color:  #708090;
-  background-color: #f8f9fa !important;
-  border-color: #f8f9fa;
+  background-color: #ebeff2 !important;
+  border-color: #ebeff2;
   width: 140px;
-  padding: 8px 20px;
+  padding: 8px 14px;
   border-radius: 6px;
   font-family: "Quicksand", sans-serif;
-  color: #708090;
   text-align: center;
   &:focus{text-decoration: none; border: none;}
+}
+
+.btn-light.disabled {
+  color: $gray;
 }
 
 .btn-light:active {
@@ -75,16 +81,20 @@ margin: 0px 0px 2px;
 
 #list_button {
   position: sticky;
-  bottom: 90%;
+  bottom: 91.5%;
   margin-left: 140px;
   opacity: 1;
+  height: 40px;
+  width: 130px;
 }
 
 #map_button {
   position: fixed;
-  bottom: 90%;
+  bottom: 91.5%;
   margin-left: 110px;
   opacity: 1;
+  height: 40px;
+  width: 130px;
 }
 
 #vincinity_button {
@@ -104,6 +114,7 @@ margin: 0px 0px 2px;
 .mapboxgl-ctrl-icon {
     position: absolute;
     bottom: -0px;
+    color: white !important;
 }
 .mapboxgl-ctrl-group:not(:empty) {
   box-shadow: none !important;
