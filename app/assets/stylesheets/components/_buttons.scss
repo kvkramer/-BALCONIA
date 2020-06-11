@@ -59,6 +59,9 @@
   font-family: "Quicksand", sans-serif;
   text-align: center;
   &:focus{text-decoration: none; border: none;}
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .btn-delete {
