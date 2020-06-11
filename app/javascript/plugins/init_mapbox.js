@@ -5,7 +5,7 @@ const buildMap = (mapElement) => {
   return new mapboxgl.Map({
     container: 'map',
     // style: 'mapbox://styles/mapbox/streets-v10'
-    style: 'mapbox://styles/meallie/ckas1vyrs2udf1insf8dxehqi'
+    style: 'mapbox://styles/meallie/ckb9jst8312n11ipgrht90mc4'
   });
 };
 

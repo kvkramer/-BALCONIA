@@ -1,4 +1,4 @@
-<div class="edit-banner">My conversations</div>
+<div class="edit-banner">your conversations</div>
 
 
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -23,7 +23,7 @@
           <div class="card-message-details">
             <h2><%= chatroom.sphere.title %></h2>
             <p><%= chatroom.messages.last.content.truncate(180) %></p>
-            <p id="message-time"><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+            <!-- <p id="message-time"><%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M%p") %></p> -->
           </div>
         </div>
       <% end %>
