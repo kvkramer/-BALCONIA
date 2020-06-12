@@ -15,7 +15,7 @@
 
             <div class="form">
               <%= simple_form_for :search, url: spheres_path, method: :get do |f| %>
-              <div class="search-form-control form-group">
+              <div class="search-form-control form-group" style="margin-bottom: 10px;">
 
               <%= form_tag spheres_path, method: :get do %>
               <%= text_field_tag :query,
@@ -23,14 +23,14 @@
                 class: "form-control string required",
                 placeholder: "enter your city"
                 %>
-                <%= submit_tag "explore our spheres", class: "btn-searchbar" %>
+                <%= submit_tag "explore our spheres", class: "btn-searchbar", style: "margin-bottom: 0px;" %>
               <% end %>
 
               </div>
               <% end %>
               <div class="container d-flex justify-content-center">
 
-              <button class="box button btn btn-light home"><%= link_to "offer your sphere",  new_sphere_path %></button>
+              <button class="box button btn btn-light home" style="margin-top: 0;"><%= link_to "offer your sphere",  new_sphere_path %></button>
 
 
               </div>
