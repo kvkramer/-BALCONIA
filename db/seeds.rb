@@ -61,7 +61,7 @@ sphere11.photos.attach(io: file, filename: 'spheres/112.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865994/kanan-khasmammadov-RIsKOU4cAd4-unsplash_sekqel.jpg')
 sphere11.photos.attach(io: file, filename: 'spheres/113.png', content_type: 'image/png')
 
-sphere12 = Sphere.create!(title: "Plant lover's paradise", address: "Oderstr. 1, Berlin", description: "Indulge in a green miracle garden in the heart of Neukölln!", cost_per_day: 25, user_id: user3.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
+sphere12 = Sphere.create!(title: "Plant lover's paradise", address: "Oderstr. 1, Berlin", description: "Indulge in a green miracle garden in the heart of Neukölln!", cost_per_day: 25, user_id: user3.id, barbecue: true, balcony: true, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866297/bruno-martins-Kxv2JHh2fQ8-unsplash_sa2mww.jpg')
 sphere12.photos.attach(io: file, filename: 'spheres/121.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912301/paul-hanaoka-w2DsS-ZAP4U-unsplash_cssn0g.jpg')
@@ -95,7 +95,7 @@ file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866458/jah
 sphere15.photos.attach(io: file, filename: 'spheres/153.png', content_type: 'image/png')
 
 
-sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!", cost_per_day: 30, user_id: user1.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!", cost_per_day: 30, user_id: user1.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883639/patrick-perkins-3wylDrjxH-E-unsplash_mww4xb.jpg')
 sphere16.photos.attach(io: file, filename: 'spheres/161.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883639/brooke-lark-W1B2LpQOBxA-unsplash_cchbd1.jpg')
