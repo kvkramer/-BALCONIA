@@ -48,7 +48,7 @@ before_action :authenticate_user!
     @booking.cost_per_day = @cost_per_day
     authorize @booking
     if @booking.save
-      redirect_to bookings_path, notice: 'added booking'
+      redirect_to bookings_path, notice: 'booking added'
     else
       render :new
     end
