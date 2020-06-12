@@ -116,8 +116,6 @@ sphere17.photos.attach(io: file, filename: 'spheres/173.png', content_type: 'ima
 sphere18 = Sphere.create!(title: "greenhouse atelier for artists", description: "Hi everyone! My name is Lisa and I'm a painter from South Africa. I'm gladly sharing a part of my atelier in a greenhouse my wife and I built few years ago in the back of our garden. It's the perfect place to reconnect with nature and boost your creativity. Feel free to reach out if you have questions!", address: "Engelbecken, Berlin", cost_per_day: 10, user_id: user4.id, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883977/micheile-henderson-U3hUVXk3-Z0-unsplash_kmqkln.jpg')
   sphere18.photos.attach(io: file, filename: 'spheres/181.png', content_type: 'image/png')
-  file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883978/arno-smit-iI72r3gSwWY-unsplash_1_zjwtvu.jpg')
-  sphere18.photos.attach(io: file, filename: 'spheres/182.png', content_type: 'image/png')
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883979/eddy-klaus-BHNxfaeNCTI-unsplash_ajttsv.jpg')
   sphere18.photos.attach(io: file, filename: 'spheres/183.png', content_type: 'image/png')
 
