@@ -35,8 +35,9 @@
   </ul>
 
 
-      <div class="my-4">
-        <h5 class="profile-spheres-count mb-3">you have <%= current_user.spheres.count  %> spheres</h5>
+
+      <div class="container my-4">
+        <h5 class="profile-spheres-count mb-3">you have <%= current_user.spheres.count  %> sphere(s)</h5>
         <% @spheres.each do |sphere| %>
         <div class="card-sphere-contact-page">
 

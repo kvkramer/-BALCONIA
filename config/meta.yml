@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Balconia"
+meta_title: "Balconia - find your ideal workplace"
+meta_description: "All the comfort of your own home, only better."
+meta_image: "balconia-logo-green.png" # should exist in `app/assets/images/`
+

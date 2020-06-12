@@ -37,7 +37,9 @@ file2 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591372354/p8
 sphere1.photos.attach(io: file2, filename: 'spheres/2.png', content_type: 'image/png')
 sphere1.save
 
-sphere2 = Sphere.create!(title: "cozy living room and balcony", address: "Prenzlauer Berg, Berlin", cost_per_day: 9, user_id: user2.id, barbecue: false, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+
+sphere2 = Sphere.create!(title: "cozy living room and balcony", address: "Pappelallee 3, Berlin", cost_per_day: 9, user_id: user2.id, barbecue: false, balcony: true, garden: false, terrace: true, plants: true, quiet: false, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+
 
 file3 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591370486/xi2a69u5ct18t1fh78z3h6hft9gm.jpg')
 sphere2.photos.attach(io: file3, filename: 'spheres/3.png', content_type: 'image/png')
@@ -53,7 +55,7 @@ file6 = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591304306/ud
 sphere3.photos.attach(io: file6, filename: 'spheres/6.png', content_type: 'image/png')
 sphere3.save
 
-sphere11 = Sphere.create!(title: "House boat on the Spree", address: "Hauptstr. 15, 10137 Berlin", description: "Enjoy a relaxing day on Berlin's waters for a day!", cost_per_day: 35, user_id: user4.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
+sphere11 = Sphere.create!(title: "house boat on the Spree", address: "Hauptstr. 15, 10137 Berlin", description: "Enjoy a relaxing day on Berlin's waters for a day!", cost_per_day: 35, user_id: user4.id, barbecue: false, balcony: false, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: true)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865993/atte-gronlund-JiphyElpixM-unsplash_w7rblk.jpg')
 sphere11.photos.attach(io: file, filename: 'spheres/111.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591865994/evren-aydin-k_-rJeU2XTw-unsplash_srglvw.jpg')
@@ -70,7 +72,7 @@ file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866297/ver
 sphere12.photos.attach(io: file, filename: 'spheres/123.png', content_type: 'image/png')
 
 
-sphere13 = Sphere.create!(title: "Cozy spacious loft!", address: "Emser Str. 116, Berlin", description: "Spend an alternative working day at our amazing loft!", cost_per_day: 45, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+sphere13 = Sphere.create!(title: "cozy spacious loft!", address: "Emser Str. 116, Berlin", description: "Spend an alternative working day at our amazing loft!", cost_per_day: 45, user_id: user3.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912188/nastuh-abootalebi-eHD8Y1Znfpk-unsplash_y6fbng.jpg')
 sphere13.photos.attach(io: file, filename: 'spheres/131.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912192/andrea-davis-cYCcdsTeZaA-unsplash_ent2rh.jpg')
@@ -78,7 +80,7 @@ sphere13.photos.attach(io: file, filename: 'spheres/132.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912197/ehud-neuhaus-iv77yw43cAI-unsplash_jhvtl6.jpg')
 sphere13.photos.attach(io: file, filename: 'spheres/133.png', content_type: 'image/png')
 
-sphere14 = Sphere.create!(title: "Green haven", address: "Weisestr. 49, 12049 Berlin", description: "Relax in our beautiful flower filled garden !", cost_per_day: 20, user_id: user2.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
+sphere14 = Sphere.create!(title: "green haven", address: "Weisestr. 49, 12049 Berlin", description: "Relax in our beautiful flower filled garden !", cost_per_day: 20, user_id: user2.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866375/jeffery-erhunse-xE9Z9HZ1Grk-unsplash_iarzkg.jpg')
 sphere14.photos.attach(io: file, filename: 'spheres/141.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866376/emiel-molenaar-c6___zGObUc-unsplash_se3ukj.jpg')
@@ -86,13 +88,14 @@ sphere14.photos.attach(io: file, filename: 'spheres/142.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866377/sergey-shmidt-koy6FlCCy5s-unsplash_z6nfwv.jpg')
 sphere14.photos.attach(io: file, filename: 'spheres/143.png', content_type: 'image/png')
 
-sphere15 = Sphere.create!(title: "Balcony paradise!", address: "Taborstr. 15, Berlin", description: "Charming Tuscany-style get-away in the heart of Kreuzberg!", cost_per_day: 35, user_id: user1.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
+sphere15 = Sphere.create!(title: "balcony paradise!", address: "Taborstr. 15, Berlin", description: "Charming Tuscany-style get-away in the heart of Kreuzberg!", cost_per_day: 35, user_id: user1.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: true)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866454/jisoo-kim-7Nyt3uDKKSo-unsplash_f5qy9e.jpg')
 sphere15.photos.attach(io: file, filename: 'spheres/151.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866455/becca-tapert-uGak0qtrphM-unsplash_bn0l05.jpg')
 sphere15.photos.attach(io: file, filename: 'spheres/152.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591866458/jahz-gonzalez-bmQO7GCSW7Q-unsplash_rggvdk.jpg')
 sphere15.photos.attach(io: file, filename: 'spheres/153.png', content_type: 'image/png')
+
 
 
 sphere16 = Sphere.create!(title: "The perfect workplace", address: "Simon-Dach-Str. 11, Berlin", description: "Everything you need to get all your work done in style - including highspeed internet and a big desk!", cost_per_day: 30, user_id: user1.id, barbecue: false, balcony: true, garden: false, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
@@ -103,7 +106,7 @@ sphere16.photos.attach(io: file, filename: 'spheres/162.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883639/creatv-eight-RryFk4n-vOs-unsplash_zjgt4r.jpg')
 sphere16.photos.attach(io: file, filename: 'spheres/163.png', content_type: 'image/png')
 
-sphere17 = Sphere.create!(title: "A green garden dream!", address: "Gartenstr. 40, 10137 Berlin", description: "Work or simply relax in a beautiful garden and finish your day with a bbq on our terrace!", cost_per_day: 30, user_id: user2.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
+sphere17 = Sphere.create!(title: "a green garden dream!", address: "Gartenstr. 40, 10137 Berlin", description: "Work or simply relax in a beautiful garden and finish your day with a bbq on our terrace!", cost_per_day: 30, user_id: user2.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: true, pet_friendly: true, cozy: true)
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912300/j-j-RN9lHC0SAqQ-unsplash_wbjllk.jpg')
 sphere17.photos.attach(io: file, filename: 'spheres/171.png', content_type: 'image/png')
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912301/paul-hanaoka-w2DsS-ZAP4U-unsplash_cssn0g.jpg')
@@ -111,11 +114,9 @@ sphere17.photos.attach(io: file, filename: 'spheres/172.png', content_type: 'ima
 file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591912304/curology-6CJg-fOTYs4-unsplash_nnup3o.jpg')
 sphere17.photos.attach(io: file, filename: 'spheres/173.png', content_type: 'image/png')
 
-sphere18 = Sphere.create!(title: "greenhouse atelier for artists", description: "Hi everyone! My name is Klaus and I'm a painter from East Germany. I'm gladly sharing a part of my atelier in a greenhouse my wife and I built few years ago in the back of our garden. It's the perfect place to reconnect with nature and boost your creativity. Feel free to reach out if you have questions!", address: "Engelbecken, Berlin", cost_per_day: 10, user_id: user4.id, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
+sphere18 = Sphere.create!(title: "greenhouse atelier for artists", description: "Hi everyone! My name is Lisa and I'm a painter from South Africa. I'm gladly sharing a part of my atelier in a greenhouse my wife and I built few years ago in the back of our garden. It's the perfect place to reconnect with nature and boost your creativity. Feel free to reach out if you have questions!", address: "Engelbecken, Berlin", cost_per_day: 10, user_id: user4.id, barbecue: false, balcony: false, garden: true, terrace: false, plants: true, quiet: true, sunny: true, spacious_desk: false, highspeed_wifi: false, pet_friendly: true, cozy: false)
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883977/micheile-henderson-U3hUVXk3-Z0-unsplash_kmqkln.jpg')
   sphere18.photos.attach(io: file, filename: 'spheres/181.png', content_type: 'image/png')
-  file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883978/arno-smit-iI72r3gSwWY-unsplash_1_zjwtvu.jpg')
-  sphere18.photos.attach(io: file, filename: 'spheres/182.png', content_type: 'image/png')
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591883979/eddy-klaus-BHNxfaeNCTI-unsplash_ajttsv.jpg')
   sphere18.photos.attach(io: file, filename: 'spheres/183.png', content_type: 'image/png')
 
@@ -143,7 +144,7 @@ sphere21 = Sphere.create!(title: "large terrace with highspeed wifi near Tempelh
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591884286/alessandro-bianchi-3kKLU4-UUbU-unsplash_bcchkd.jpg')
   sphere21.photos.attach(io: file, filename: 'spheres/213.png', content_type: 'image/png')
 
-sphere22 = Sphere.create!(title: "rooftop for offsite meetings for teams up to 12 ppl", description:"Have an amazing view of busy Berlin while working. You can either work in or outside with spacious tables and projectors. We also have a mini bar and an amazing sound system you can also enjoy throughout the day. Perfect for teams up to 8 people. Snacks and drinks can be prepared upon request.", address: "Greifswalderstrasse 212, Berlin", cost_per_day: 40, user_id: user5.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
+sphere22 = Sphere.create!(title: "rooftop for offsite meetings for teams up to 12 ppl", description:"Have an amazing view of busy Berlin while working. You can either work in or outside with spacious tables and projectors. We also have a mini bar and an amazing sound system you can also enjoy throughout the day. Perfect for teams up to 8 people. Snacks and drinks can be prepared upon request.", address: "Greifswalderstrasse 212, Berlin", cost_per_day: 40, user_id: user2.id, barbecue: true, balcony: false, garden: true, terrace: true, plants: false, quiet: true, sunny: true, spacious_desk: true, highspeed_wifi: true, pet_friendly: false, cozy: false)
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591884437/garrett-parker-xQWLtlQb7L0-unsplash_y9zin3.jpg')
   sphere22.photos.attach(io: file, filename: 'spheres/221.png', content_type: 'image/png')
   file = URI.open('https://res.cloudinary.com/kathavk/image/upload/v1591884437/pelle-martin-RBTGCDDAlfc-unsplash_joxzrx.jpg')
