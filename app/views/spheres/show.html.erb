@@ -25,10 +25,10 @@
       <div class="card-sphere-show">
         <div class="card-sphere-show-infos" style="border-bottom: 1px solid lightgray;">
           <div>
-            <h1 id="showpage_title">Welcome to your <%= @sphere.title %></h1>
+            <h1 id="showpage_title">welcome to your <%= @sphere.title.downcase %></h1>
             <br>
-            <p> <i class="fas fa-map-marker-alt"></i>  <%= @sphere.address %></p>
-            <p> <i class="far fa-comment"></i>  <%= @sphere.description %></p>
+            <p> <i class="fas fa-map-marker-alt"></i>  <%= @sphere.address.downcase %></p>
+            <p> <i class="far fa-comment"></i>  <%= @sphere.description.downcase %></p>
 
             <p id="showpage_price"> <i class="fas fa-euro-sign"></i>  <%= @sphere.cost_per_day %>/day</p>
             <br>
@@ -106,7 +106,7 @@
               <% end %>
             <% end %>
           </ul>
-      
+
         <%else%>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">no reviews yet.</li>
@@ -132,7 +132,7 @@
           <div class="card lowest" style="border: none; padding: 16px; border-top: 1px solid lightgray;">
             <h4 style="margin-top: 5px;"> meet your host: <%= link_to @sphere.user.name, user_path(@sphere.user), style: 'font-weight: bolder; font-size: 24px; text-decoration: none;' %> </h4>
               <br>
-              
+
                <%= link_to sphere_chatrooms_path(@sphere), method: :post, class: 'd-flex justify-content-around align-items-center btn btn-light' do %>
                 <img src="<%= @sphere.user.image %>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
                 <p>ask the host a question</p>
