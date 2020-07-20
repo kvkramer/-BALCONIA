@@ -4,7 +4,8 @@
   <div class="profile-container">
     <% avatar_url = current_user.image || "http://placehold.it/30x30" %>
     <img src="<%= avatar_url%>" class="card-sphere-user avatar-bordered" alt="avatar of user" />
-    <h3 class="profile-title">welcome back, <%= current_user.name.downcase  %></h3>
+
+    <h3 class="profile-title">welcome back <%= current_user.name  %></h3>
 
     <% if user_signed_in? %>
           <!-- <div class="edit-banner"> log out </div> <%= current_user.name %>
